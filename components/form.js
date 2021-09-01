@@ -75,7 +75,7 @@ const Form = () => {
 					</Container>
 				</Box>
 				<Box
-					backgroundImage="/work3.jpeg"
+					backgroundImage="/work3.png"
 					backgroundSize="cover"
 					display={["none", null, null, "block"]}
 				></Box>
