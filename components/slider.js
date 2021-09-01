@@ -101,7 +101,8 @@ const BannerSlider = () => {
 							<MotionHeading
 								key={title + page}
 								color="white"
-								size="2xl"
+								// size="2xl"
+								fontSize={["3xl", null, "4xl"]}
 								textAlign="center"
 								maxW="600px"
 								transition={{
@@ -130,7 +131,7 @@ const BannerSlider = () => {
 							<MotionText
 								key={subtitle + page}
 								color="white"
-								fontSize="2xl"
+								fontSize={["lg", null, "2xl"]}
 								textAlign="center"
 								maxW="800px"
 								transition={{
