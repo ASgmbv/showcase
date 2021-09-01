@@ -19,15 +19,22 @@ const BannerSlider = () => {
 	const slides = [
 		{
 			img: "/bg3.jpeg",
-			title: "BIG PICTURE PURPOSE",
+			title: "Welcome to Italia Outdoor Living",
 			subtitle:
-				"SOLVING PROBLEMS, OVERCOMING OBSTACLES AND CRAFTING ALTERNATIVES WHERE THERE APPEAR TO BE NONE",
+				"For over 2 decades, Italia Outdoor Living has been Long Island's leading provider of concrete pool construction and custom outdoor landscaping for nearly 20 years, and with good reasons.",
 		},
 		{
 			img: "/work2.jpeg",
-			title: "CO-AUTHORS IN THE STORY OF PLACE",
+			title: "Trust your landscape to Professionals",
 			subtitle:
-				"CREATING HEALTHY, SUSTAINABLE, AND ENJOYABLE ENVIRONMENTS FOR USERS OF THE WORLD’S LANDSCAPES",
+				"We are experts in marble, travertine patios, walkaways, lighting, landscaping, pergolas, outdoor pavilions, and pool houses.",
+		},
+
+		{
+			img: "/work3.jpeg",
+			title: "We Build Luxury",
+			subtitle:
+				"A beautiful backyard gives your property another dimension, another level of extravagance that serves as a perfect place to relax or entertain family, friends, and guests, if you want a pool for your property, there really is only one place to call, Italia Outdoor Living.",
 		},
 	];
 

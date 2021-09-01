@@ -10,9 +10,9 @@ import NextImage from "next/image";
 
 const items = [
 	{
-		title: "PLANNING",
+		title: "Outdoor living space",
 		description:
-			"A holistic narrative and immersive story of place generate an emotional connection between visitors and fully developed thematic concepts to ensure the economic viability of a project by driving visitors’ attendance and return engagements.",
+			"There are few better accompaniments to a pool than a water feature. Elegant and relaxing, the sound of the water compements the beautiful aesthetics of the feature itself, Pool fountains and waterfalls are very popular additions to pools.",
 		categories: [
 			"Opportunity Assessment Strategy",
 			"Blue Sky Visioning | Story Development",
@@ -23,12 +23,12 @@ const items = [
 			"Character Creation",
 			"Ride Show Development",
 		],
-		image: "/bg1.jpeg",
+		image: "/bg1.png",
 	},
 	{
-		title: "LANDSCAPE ARCHITECTURE",
+		title: "Waterfalls, Outdoor kitchens & Fire features",
 		description:
-			"Exceptional design balances the past, present, and future. Our designs capture the spirit, culture, and existing environment of each locale, providing a foundation for memorable experiences.",
+			"There are few better accompaniments to a pool than a water feature. Elegant and relaxing, the sound of the water compements the beautiful aesthetics of the feature itself, Pool fountains and waterfalls are very popular additions to pools.",
 		categories: [
 			"Site Design",
 			"Concept /Theming",
@@ -38,13 +38,13 @@ const items = [
 			"Construction Documents",
 			"Construction Period Services",
 		],
-		image: "/bg2.jpeg",
+		image: "/bg2.png",
 	},
 	{
-		title: "THEMED ENTERTAINMENT DESIGN",
-		image: "/bg3.jpeg",
+		title: "Freeform Pools",
+		image: "/bg3.png",
 		description:
-			"A holistic narrative and immersive story of place generate an emotional connection between visitors and fully developed thematic concepts to ensure the economic viability of a project by driving visitors’ attendance and return engagements.",
+			"For pool like no other, freeform is the day to go. While a lot of pools are often square or rectangle, freeform pools offer something different, something that can be unique to your property and design choice.",
 		categories: [
 			"Opportunity Assessment Strategy",
 			"Blue Sky Visioning | Story Development",
@@ -57,10 +57,10 @@ const items = [
 		],
 	},
 	{
-		title: "URBAN DESIGN",
-		image: "/bg4.jpeg",
+		title: "New Build Swimming pools",
+		image: "/bg4.png",
 		description:
-			"Through careful planning and analysis, our urban projects provide optimal benefits to the surrounding community while addressing the complexities and intricate relationships that tie our cities together.",
+			"Having your own pool is a luxurious situation that few other property features can cathc. We are experts in building luxury concrete pools across Long Island The luxury pools that we design and build at Italia Outdoor Living are, simply put, astonishing. To build your dream pool, contact our team.",
 		categories: [
 			"Downtown Planning",
 			"Mixed-Use Neighborhoods",
@@ -68,10 +68,6 @@ const items = [
 			"Public Participation / Consensus Building",
 			"Retail Environments",
 			"Streetscapes",
-			"Transit Oriented Design",
-			"Urban Parks and Plazas",
-			"Vision Plans",
-			"Waterfront Revitalization",
 		],
 	},
 ];
@@ -100,7 +96,12 @@ const Features = () => {
 						height="100%"
 						color="white"
 						padding={[10, null, 14]}
-						bg="rgba(77, 124, 142, 0.4)"
+						bg={[
+							"rgba(77, 124, 142, 0.8)",
+							null,
+							null,
+							"rgba(77, 124, 142, 0.4)",
+						]}
 						_hover={{
 							backgroundColor: "rgba(77, 124, 142, 0.8)",
 							transition: "all 0.4s",
@@ -138,7 +139,7 @@ const Features = () => {
 
 						<Text
 							mb="4"
-							opacity="0"
+							opacity={[1, null, null, 0]}
 							transform="translateY(10px)"
 							fontSize={["sm"]}
 						>
@@ -146,7 +147,7 @@ const Features = () => {
 						</Text>
 
 						<UnorderedList
-							opacity="0"
+							opacity={[1, null, null, 0]}
 							transform="translateY(10px)"
 							fontSize="sm"
 						>
@@ -163,8 +164,8 @@ const Features = () => {
 							bottom={[6, null, 10]}
 							borderTop="1px solid #fff"
 							borderBottom="1px solid #fff"
-							transform="scaleX(0.1)"
-							opacity="0"
+							transform={["scaleX(1)", null, null, "scaleX(0.1)"]}
+							opacity={[1, null, null, 0]}
 						></Box>
 
 						<Box
@@ -175,8 +176,8 @@ const Features = () => {
 							bottom={[6, null, 10]}
 							borderLeft="1px solid #fff"
 							borderRight="1px solid #fff"
-							transform="scaleY(0.1)"
-							opacity="0"
+							transform={["scaleY(1)", null, null, "scaleY0.1)"]}
+							opacity={[1, null, null, 0]}
 						></Box>
 					</Box>
 				</Box>

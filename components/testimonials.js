@@ -6,13 +6,13 @@ import {
 	Stack,
 	Text,
 	useBreakpointValue,
-	Image,
 	Container,
 	Heading,
 	Divider,
 } from "@chakra-ui/react";
 import { useKeenSlider } from "keen-slider/react";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import NextImage from "next/image";
 
 const items = [
 	{
@@ -108,7 +108,16 @@ export const Testimonials = () => {
 								className="keen-slider__slide"
 								spacing="4"
 							>
-								<Image src={image} />
+								<Box
+									position="relative"
+									height={["300px", null, null, "270px"]}
+								>
+									<NextImage
+										src={image}
+										layout="fill"
+										objectFit="cover"
+									/>
+								</Box>
 								<Heading size="sm" color="gray.600">
 									{name}
 								</Heading>

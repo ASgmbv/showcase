@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Container, Heading } from "@chakra-ui/react";
 import Features from "../components/features";
 import Footer from "../components/footer";
 import Form from "../components/form";
@@ -10,11 +10,22 @@ export default function Home() {
 	return (
 		<Box>
 			<BannerSlider />
-			<Box height="200px"></Box>
+			<Box>
+				<Container my="80px">
+					<Heading textAlign="center" color="#094E8F">
+						Our Services
+					</Heading>
+				</Container>
+			</Box>
 			<Features />
-			<Box height="200px"></Box>
+			<Box>
+				<Container my="80px">
+					<Heading textAlign="center" color="#094E8F">
+						Our Projects
+					</Heading>
+				</Container>
+			</Box>
 			<Works />
-			<Box height="200px"></Box>
 			<Testimonials />
 			<Form />
 			<Footer />

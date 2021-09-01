@@ -5,22 +5,22 @@ const items = [
 	{
 		title: "Haichang Automobile City and Theme Park",
 		description: "Dalian, China",
-		image: "/work1.jpeg",
+		image: "/work1.png",
 	},
 	{
 		title: "Mysterious Rainforest Kingdom",
 		description: "Sanya, China",
-		image: "/work2.jpeg",
+		image: "/work2.png",
 	},
 	{
 		title: "Al Ain Wildlife Park & Resort",
 		description: "Al Ain, United Arab Emirates",
-		image: "/work3.jpeg",
+		image: "/work3.png",
 	},
 	{
 		title: "Aquaventure Waterpark",
 		description: "Paradise Island, Bahamas",
-		image: "/work4.jpeg",
+		image: "/work4.png",
 	},
 ];
 
@@ -57,7 +57,12 @@ const Works = () => {
 						justifyContent="center"
 						flexDir="column"
 						padding={[10, null, 14]}
-						bg="rgba(77, 124, 142, 0.4)"
+						bg={[
+							"rgba(77, 124, 142, 0.8)",
+							null,
+							null,
+							"rgba(77, 124, 142, 0.4)",
+						]}
 						_hover={{
 							backgroundColor: "rgba(77, 124, 142, 0.8)",
 							transition: "all 0.4s",
@@ -77,13 +82,17 @@ const Works = () => {
 							textAlign="center"
 							fontSize={["lg", null, "xl"]}
 							letterSpacing="wide"
-							opacity="0"
+							opacity={[1, null, null, 0]}
 							mb="2"
 						>
 							{title}
 						</Heading>
 
-						<Text opacity="0" fontSize={["sm"]} textAlign="center">
+						<Text
+							opacity={[1, null, null, 0]}
+							fontSize={["sm"]}
+							textAlign="center"
+						>
 							{description}
 						</Text>
 					</Flex>
