@@ -34,13 +34,13 @@ const items = [
 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
 	},
 	{
-		image: "/test2.png",
+		image: "/test4.png",
 		name: "John Black",
 		desc:
 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
 	},
 	{
-		image: "/test3.png",
+		image: "/test5.png",
 		name: "Jessica  Adren",
 		desc:
 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
