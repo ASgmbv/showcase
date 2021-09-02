@@ -81,8 +81,9 @@ const Form = () => {
 					</Container>
 				</Box>
 				<Box
-					backgroundImage="/form.png"
+					backgroundImage="/form.jpg"
 					backgroundSize="cover"
+					backgroundPosition="right"
 					display={["none", null, null, "block"]}
 				></Box>
 			</Grid>

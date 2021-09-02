@@ -18,20 +18,20 @@ const MotionBox = motion(Box);
 const BannerSlider = () => {
 	const slides = [
 		{
-			img: "/sl1.png",
+			img: "/sl1.jpg",
 			title: "Welcome to Italia Outdoor Living",
 			subtitle:
 				"For over 2 decades, Italia Outdoor Living has been Long Island's leading provider of concrete pool construction and custom outdoor landscaping for nearly 20 years, and with good reasons.",
 		},
 		{
-			img: "/sl2.png",
+			img: "/form.jpg",
 			title: "Trust your landscape to Professionals",
 			subtitle:
 				"We are experts in marble, travertine patios, walkaways, lighting, landscaping, pergolas, outdoor pavilions, and pool houses.",
 		},
 
 		{
-			img: "/sl3.png",
+			img: "/bg3.jpg",
 			title: "We Build Luxury",
 			subtitle:
 				"A beautiful backyard gives your property another dimension, another level of extravagance that serves as a perfect place to relax or entertain family, friends, and guests, if you want a pool for your property, there really is only one place to call, Italia Outdoor Living.",

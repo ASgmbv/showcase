@@ -5,22 +5,22 @@ const items = [
 	{
 		title: "Haichang Automobile City and Theme Park",
 		description: "Dalian, China",
-		image: "/work1.png",
+		image: "/work1.jpg",
 	},
 	{
 		title: "Mysterious Rainforest Kingdom",
 		description: "Sanya, China",
-		image: "/work2.png",
+		image: "/work2.jpg",
 	},
 	{
 		title: "Al Ain Wildlife Park & Resort",
 		description: "Al Ain, United Arab Emirates",
-		image: "/work3.png",
+		image: "/work3.jpg",
 	},
 	{
 		title: "Aquaventure Waterpark",
 		description: "Paradise Island, Bahamas",
-		image: "/work4.png",
+		image: "/work4.jpg",
 	},
 ];
 

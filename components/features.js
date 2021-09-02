@@ -24,7 +24,7 @@ const items = [
 			"Character Creation",
 			"Ride Show Development",
 		],
-		image: "/bg1.png",
+		image: "/bg1.jpg",
 	},
 	{
 		title: "Waterfalls, Outdoor kitchens & Fire features",
@@ -39,11 +39,11 @@ const items = [
 			"Construction Documents",
 			"Construction Period Services",
 		],
-		image: "/bg2.png",
+		image: "/bg2.jpg",
 	},
 	{
 		title: "Freeform Pools",
-		image: "/bg3.png",
+		image: "/bg3.jpg",
 		description:
 			"For pool like no other, freeform is the day to go. While a lot of pools are often square or rectangle, freeform pools offer something different, something that can be unique to your property and design choice.",
 		categories: [
@@ -59,7 +59,7 @@ const items = [
 	},
 	{
 		title: "New Build Swimming pools",
-		image: "/bg4.png",
+		image: "/bg4.jpg",
 		description:
 			"Having your own pool is a luxurious situation that few other property features can cathc. We are experts in building luxury concrete pools across Long Island The luxury pools that we design and build at Italia Outdoor Living are, simply put, astonishing. To build your dream pool, contact our team.",
 		categories: [
