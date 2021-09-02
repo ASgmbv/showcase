@@ -6,7 +6,6 @@ import {
 	HStack,
 	Text,
 	IconButton,
-	Image,
 } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
