@@ -65,7 +65,13 @@ const Form = () => {
 							<Button
 								borderRadius="0"
 								width="fit-content"
-								bg="#3A86FF"
+								bg="#8BC441"
+								_hover={{
+									bg: "green.300",
+								}}
+								_active={{
+									bg: "green.300",
+								}}
 								color="white"
 								size="lg"
 							>
