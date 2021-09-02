@@ -78,7 +78,11 @@ const Features = () => {
 		<>
 			<Box id="services">
 				<Container py="80px">
-					<Heading textAlign="center" color="#094E8F">
+					<Heading
+						textAlign="center"
+						color="#094E8F"
+						textTransform="uppercase"
+					>
 						Our Services
 					</Heading>
 				</Container>

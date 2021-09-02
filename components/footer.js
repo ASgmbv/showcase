@@ -46,16 +46,16 @@ const Footer = () => {
 						<Stack direction="row">
 							<Icon as={MdLocationOn} boxSize="5" color="#094E8F" />
 							<Text fontSize="sm">
-								8819 Ohio St. South Gate, CA 90280
+								GLENWOOD LANDING 11543 NEW YORK - United States
 							</Text>
 						</Stack>
 						<Stack direction="row">
 							<Icon as={MdMailOutline} boxSize="5" color="#094E8F" />
-							<Text fontSize="sm">Ourstudio@hello.com</Text>
+							<Text fontSize="sm">contact@italiaoutdoor.com</Text>
 						</Stack>
 						<Stack direction="row">
 							<Icon as={MdPhone} boxSize="5" color="#094E8F" />
-							<Text fontSize="sm">+1 386-688-3295</Text>
+							<Text fontSize="sm">+1 631-518-3331</Text>
 						</Stack>
 					</Stack>
 					<Stack spacing="4">

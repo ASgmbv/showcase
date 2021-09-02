@@ -4,7 +4,7 @@ import {
 	Flex,
 	Heading,
 	HStack,
-	Text,
+	// Text,
 	IconButton,
 } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
@@ -12,7 +12,7 @@ import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
+// const MotionText = motion(Text);
 const MotionBox = motion(Box);
 
 const BannerSlider = () => {
@@ -39,7 +39,7 @@ const BannerSlider = () => {
 	];
 
 	const [page, setPage] = useState(0);
-	const { img, title, subtitle } = slides[page];
+	const { img, title } = slides[page];
 	const animation = useAnimation();
 
 	useEffect(() => {
@@ -110,7 +110,7 @@ const BannerSlider = () => {
 								textTransform="uppercase"
 								fontSize={["3xl", null, "4xl"]}
 								textAlign="center"
-								maxW="600px"
+								// maxW="600px"
 								transition={{
 									duration: 0.5,
 									delay: 0,
@@ -132,7 +132,8 @@ const BannerSlider = () => {
 							</MotionHeading>
 						</AnimatePresence>
 					</Box>
-					<Box overflow="hidden" mb="5">
+
+					{/* <Box overflow="hidden" mb="5">
 						<AnimatePresence exitBeforeEnter>
 							<MotionText
 								key={subtitle + page}
@@ -160,7 +161,7 @@ const BannerSlider = () => {
 								{subtitle}
 							</MotionText>
 						</AnimatePresence>
-					</Box>
+					</Box> */}
 
 					<HStack color="white" justifySelf="end" spacing="3">
 						<IconButton

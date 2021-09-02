@@ -63,8 +63,13 @@ export const Testimonials = () => {
 	return (
 		<Box width="100%" py="80px" id="testimonials">
 			<Container maxW="container.lg">
-				<Heading textAlign="center" mb="20" color="#094E8F">
-					What Our Customer says
+				<Heading
+					textAlign="center"
+					mb="20"
+					color="#094E8F"
+					textTransform="uppercase"
+				>
+					Testimonials
 				</Heading>
 
 				<Flex alignItems="center" position="relative">
