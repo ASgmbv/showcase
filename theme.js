@@ -8,10 +8,10 @@ const customTheme = extendTheme({
 			},
 		},
 	},
-	//  fonts: {
-	//     body: "Inter, sans-serif",
-	//     heading: "Poppins, sans-serif",
-	//  },
+	fonts: {
+		body: "Poppins, sans-serif",
+		heading: "Poppins, sans-serif",
+	},
 });
 
 export default customTheme;
