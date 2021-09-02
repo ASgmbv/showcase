@@ -6,6 +6,7 @@ import {
 	HStack,
 	Text,
 	IconButton,
+	Image,
 } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
@@ -107,7 +108,7 @@ const BannerSlider = () => {
 							<MotionHeading
 								key={title + page}
 								color="white"
-								// size="2xl"
+								textTransform="uppercase"
 								fontSize={["3xl", null, "4xl"]}
 								textAlign="center"
 								maxW="600px"

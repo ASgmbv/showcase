@@ -14,7 +14,7 @@ import {
 
 const Form = () => {
 	return (
-		<Box>
+		<Box id="contacts">
 			<Grid templateColumns={["1fr", null, null, "repeat(3, 1fr)"]}>
 				<Box
 					gridColumn={[null, null, null, "1 / 3"]}

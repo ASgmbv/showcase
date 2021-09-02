@@ -39,8 +39,8 @@ function getGridArea(idx) {
 const Works = () => {
 	return (
 		<>
-			<Box>
-				<Container my="80px">
+			<Box id="projects">
+				<Container py="80px">
 					<Heading textAlign="center" color="#094E8F">
 						Our Projects
 					</Heading>

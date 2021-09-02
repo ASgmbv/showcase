@@ -76,8 +76,8 @@ const items = [
 const Features = () => {
 	return (
 		<>
-			<Box>
-				<Container my="80px">
+			<Box id="services">
+				<Container py="80px">
 					<Heading textAlign="center" color="#094E8F">
 						Our Services
 					</Heading>
@@ -120,17 +120,32 @@ const Features = () => {
 									opacity: 1,
 								},
 								h3: {
-									transform: "translateY(10px)",
+									transform: [
+										"translateY(0)",
+										null,
+										null,
+										"translateY(10px)",
+									],
 									transition: "all 0.3s",
 								},
 								p: {
 									transition: "all 0.5s",
-									transform: "translateY(-10px)",
+									transform: [
+										"translateY(0)",
+										null,
+										null,
+										"translateY(-10px)",
+									],
 									opacity: 1,
 								},
 								ul: {
 									transition: "all 0.5s",
-									transform: "translateY(-10px)",
+									transform: [
+										"translateY(0)",
+										null,
+										null,
+										"translateY(-10px)",
+									],
 									opacity: 1,
 								},
 							}}
@@ -149,7 +164,12 @@ const Features = () => {
 							<Text
 								mb="4"
 								opacity={[1, null, null, 0]}
-								transform="translateY(10px)"
+								transform={[
+									"translateY(0)",
+									null,
+									null,
+									"translateY(10px)",
+								]}
 								fontSize={["sm"]}
 							>
 								{description}
@@ -157,7 +177,12 @@ const Features = () => {
 
 							<UnorderedList
 								opacity={[1, null, null, 0]}
-								transform="translateY(10px)"
+								transform={[
+									"translateY(0)",
+									null,
+									null,
+									"translateY(10px)",
+								]}
 								fontSize="sm"
 							>
 								{categories.map((el) => (
