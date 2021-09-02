@@ -3,23 +3,23 @@ import NextImage from "next/image";
 
 const items = [
 	{
-		title: "Haichang Automobile City and Theme Park",
-		description: "Dalian, China",
+		title: "Beautiful Backyard",
+		description: "Muttontown, NY",
 		image: "/work1.jpg",
 	},
 	{
-		title: "Mysterious Rainforest Kingdom",
-		description: "Sanya, China",
+		title: "Sophisticated Pool",
+		description: "Jamaica, NY",
 		image: "/work2.jpg",
 	},
 	{
-		title: "Al Ain Wildlife Park & Resort",
-		description: "Al Ain, United Arab Emirates",
+		title: "Maginificent Pool",
+		description: "Long Island, NY",
 		image: "/work3.jpg",
 	},
 	{
-		title: "Aquaventure Waterpark",
-		description: "Paradise Island, Bahamas",
+		title: "Gorgeous Estate",
+		description: "Kings Point, NY",
 		image: "/work4.jpg",
 	},
 ];
