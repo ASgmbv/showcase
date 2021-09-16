@@ -10,7 +10,8 @@ import { RichText } from "prismic-reactjs";
 
 export async function getStaticProps({ params }) {
 	const blogPost = await queryBlogPostBySlug(params.slug);
-	const { base64, img } = await getPlaiceholder(blogPost.cover);
+	console.dir(blogPost);
+	const { base64, img } = await getPlaiceholder(blogPost?.cover);
 
 	delete img["width"];
 	delete img["height"];
@@ -48,7 +49,7 @@ const BlogPage = ({ blogPost }) => {
 			<Header />
 			<Box height="400px" position="relative">
 				<NextImage
-					{...blogPost.cover}
+					{...blogPost?.cover}
 					layout="fill"
 					objectFit="cover"
 					placeholder="blur"
