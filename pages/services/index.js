@@ -12,26 +12,56 @@ import {
 	Stack,
 	Text,
 } from "@chakra-ui/react";
+import { services } from "lib/data";
 import NextImage from "next/image";
+import { getPlaiceholder } from "plaiceholder";
+import work1 from "../../public/work1.jpg";
+import work2 from "../../public/work2.jpg";
+import work3 from "../../public/work3.jpg";
+
+export const getStaticProps = async () => {
+	let specificServices = services.map(async (item) => {
+		const { base64, img } = await getPlaiceholder(item.image);
+
+		delete img["width"];
+		delete img["height"];
+
+		return {
+			...item,
+			image: {
+				...img,
+				blurDataURL: base64,
+			},
+		};
+	});
+
+	specificServices = await Promise.all(specificServices);
+
+	return {
+		props: {
+			specificServices,
+		},
+	};
+};
 
 const MainService = () => {
 	return (
 		<Stack spacing="1">
 			{[
 				{
-					image: "/work1.jpg",
+					image: work1,
 					title: "Natural stone pátios & Innovated landscaping design",
 					description:
 						"For pool like no other, freeform is the day to go. While a lot of pools are often square or rectangle, freeform pools offer something different.",
 				},
 				{
-					image: "/work2.jpg",
+					image: work2,
 					title: "Outdoor living space",
 					description:
 						"For pool like no other, freeform is the day to go. While a lot of pools are often square or rectangle, freeform pools offer something different.",
 				},
 				{
-					image: "/work3.jpg",
+					image: work3,
 					title: "Master plans & Rendering",
 					description:
 						"For pool like no other, freeform is the day to go. While a lot of pools are often square or rectangle, freeform pools offer something different.",
@@ -42,7 +72,12 @@ const MainService = () => {
 					height={["300px", null, "300px"]}
 					position="relative"
 				>
-					<NextImage src={image} layout="fill" objectFit="cover" />
+					<NextImage
+						src={image}
+						layout="fill"
+						objectFit="cover"
+						placeholder="blur"
+					/>
 					<Flex
 						position="absolute"
 						top="0"
@@ -146,51 +181,14 @@ const MainService = () => {
 	);
 };
 
-const SpecificService = () => {
+const SpecificService = ({ services }) => {
 	return (
 		<Container maxW="container.xl">
 			<Grid
 				templateColumns={["repeat(1, 1fr)", null, "repeat(2, 1fr)"]}
 				gap="1"
 			>
-				{[
-					{
-						image: "/work1.jpg",
-						title: "Waterfalls, Outdoor kitchens & Fire features",
-						description:
-							"There are few better accompaniments to a pool than a water feature. Elegant and relaxing, the sound of the water...",
-					},
-					{
-						image: "/work2.jpg",
-						title: "Inground Pool Builders",
-						description:
-							"There are few better accompaniments to a pool than a water feature. Elegant and relaxing, the sound of the water...",
-					},
-					{
-						image: "/work3.jpg",
-						title: "Infinity Pool",
-						description:
-							"There are few better accompaniments to a pool than a water feature. Elegant and relaxing, the sound of the water...",
-					},
-					{
-						image: "/work4.jpg",
-						title: "Elevated Pool",
-						description:
-							"There are few better accompaniments to a pool than a water feature. Elegant and relaxing, the sound of the water...",
-					},
-					{
-						image: "/bg1.jpg",
-						title: "Concrete Pool",
-						description:
-							"There are few better accompaniments to a pool than a water feature. Elegant and relaxing, the sound of the water...",
-					},
-					{
-						image: "/bg2.jpg",
-						title: "New build swimming pools & Pool renovations ",
-						description:
-							"There are few better accompaniments to a pool than a water feature. Elegant and relaxing, ...",
-					},
-				].map(({ image, title, description }, idx) => (
+				{services.map(({ image, title, description }, idx) => (
 					<Box
 						key={idx}
 						height={["250px", null, "500px"]}
@@ -320,7 +318,7 @@ const SpecificService = () => {
 	);
 };
 
-const ServicesPage = () => {
+const ServicesPage = ({ specificServices }) => {
 	return (
 		<>
 			<Header />
@@ -328,7 +326,7 @@ const ServicesPage = () => {
 			<Title>WHAT WE DO</Title>
 			<MainService />
 			<Title>OUR SERVICES</Title>
-			<SpecificService />
+			<SpecificService services={specificServices} />
 			<Box height="100px"></Box>
 			<Footer />
 		</>

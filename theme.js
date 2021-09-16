@@ -15,9 +15,16 @@ const customTheme = extendTheme({
 	components: {
 		Link: {
 			baseStyle: {
-				_hover: {
-					textDecoration: "none",
+				// _hover: {
+				// 	textDecoration: "none",
+				// },
+				_focus: {
+					boxShadow: "none",
 				},
+			},
+		},
+		Button: {
+			baseStyle: {
 				_focus: {
 					boxShadow: "none",
 				},

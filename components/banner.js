@@ -1,10 +1,16 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
+import bannerImage from "../public/services/main.png";
 
 const Banner = ({ title }) => {
 	return (
 		<Box height={["250px", null, "400px"]} position="relative">
-			<NextImage src="/services/main.png" layout="fill" objectFit="cover" />
+			<NextImage
+				src={bannerImage}
+				layout="fill"
+				objectFit="cover"
+				placeholder="blur"
+			/>
 			<Flex
 				position="absolute"
 				top="0"
