@@ -79,7 +79,7 @@ const Works = () => {
 								backgroundColor: "rgba(77, 124, 142, 0.8)",
 								transition: "all 0.4s",
 								h3: {
-									transition: "all 0.3s",
+									transition: "all ease-in-out 0.3s",
 									opacity: 1,
 								},
 								p: {
@@ -96,6 +96,7 @@ const Works = () => {
 								letterSpacing="wide"
 								opacity={[1, null, null, 0]}
 								mb="2"
+								transition="all ease-in-out 0.3s"
 							>
 								{title}
 							</Heading>
@@ -104,6 +105,7 @@ const Works = () => {
 								opacity={[1, null, null, 0]}
 								fontSize={["sm"]}
 								textAlign="center"
+								transition="all ease-in-out 0.3s"
 							>
 								{description}
 							</Text>

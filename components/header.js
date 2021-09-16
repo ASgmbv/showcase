@@ -29,7 +29,7 @@ const Header = () => {
 			zIndex="99"
 			boxShadow="0 5px 12px rgb(77 124 142 / 25%)"
 		>
-			<Container maxW="container.lg">
+			<Container maxW="container.xl">
 				<Flex justifyContent="space-between">
 					<Box
 						width={["100px", null, "140px"]}

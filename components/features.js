@@ -130,7 +130,7 @@ const Features = () => {
 										null,
 										"translateY(10px)",
 									],
-									transition: "all 0.3s",
+									transition: "all ease-in-out 0.3s",
 								},
 								p: {
 									transition: "all 0.5s",
@@ -161,6 +161,7 @@ const Features = () => {
 								fontSize={["lg", null, "xl"]}
 								letterSpacing="wide"
 								mb="10"
+								transition="all ease-in-out 0.3s"
 							>
 								{title}
 							</Heading>
@@ -214,7 +215,7 @@ const Features = () => {
 								bottom={[6, null, 10]}
 								borderLeft="1px solid #fff"
 								borderRight="1px solid #fff"
-								transform={["scaleY(1)", null, null, "scaleY0.1)"]}
+								transform={["scaleY(1)", null, null, "scaleY(0.1)"]}
 								opacity={[1, null, null, 0]}
 							></Box>
 						</Box>

@@ -3,6 +3,7 @@ import {
 	Button,
 	Circle,
 	Container,
+	Divider,
 	FormControl,
 	FormLabel,
 	Grid,
@@ -19,6 +20,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 const Footer = () => {
 	return (
 		<Box as="footer">
+			<Divider />
 			<Container maxW="container.xl">
 				<Grid
 					templateColumns={[
@@ -94,9 +96,9 @@ const Footer = () => {
 					</Stack>
 				</Grid>
 			</Container>
-			<Box py="4" borderTop="0.5px solid #094E8F" textAlign="center">
+			{/* <Box py="4" borderTop="0.5px solid #094E8F" textAlign="center">
 				Nomad Studio
-			</Box>
+			</Box> */}
 		</Box>
 	);
 };
