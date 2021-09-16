@@ -1,22 +1,23 @@
 import { Box, Container, Flex, HStack, Link } from "@chakra-ui/react";
 import NextImage from "next/image";
+import NextLink from "next/link";
 
 const items = [
 	{
 		title: "Services",
-		link: "/#services",
+		link: "/services",
 	},
 	{
 		title: "Projects",
-		link: "/#projects",
+		link: "/projects",
 	},
 	{
-		title: "Testimonials",
-		link: "/#testimonials",
+		title: "Blog",
+		link: "/blogs",
 	},
 	{
-		title: "Contacts",
-		link: "/#contacts",
+		title: "About Us",
+		link: "/",
 	},
 ];
 
@@ -31,17 +32,21 @@ const Header = () => {
 		>
 			<Container maxW="container.xl">
 				<Flex justifyContent="space-between">
-					<Box
-						width={["100px", null, "140px"]}
-						height={["50px", null, "60px"]}
-						position="relative"
-					>
-						<NextImage
-							src="/logo.png"
-							layout="fill"
-							objectFit="contain"
-						/>
-					</Box>
+					<NextLink href="/">
+						<a>
+							<Box
+								width={["100px", null, "140px"]}
+								height={["50px", null, "60px"]}
+								position="relative"
+							>
+								<NextImage
+									src="/logo.png"
+									layout="fill"
+									objectFit="contain"
+								/>
+							</Box>
+						</a>
+					</NextLink>
 
 					<HStack
 						align="center"

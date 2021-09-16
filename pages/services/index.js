@@ -1,7 +1,10 @@
+import Banner from "@/components/banner";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import Title from "@/components/title";
 import {
 	Box,
+	Button,
 	Container,
 	Flex,
 	Grid,
@@ -13,7 +16,7 @@ import NextImage from "next/image";
 
 const MainService = () => {
 	return (
-		<Stack spacing={[2, null, 6]}>
+		<Stack spacing="1">
 			{[
 				{
 					image: "/work1.jpg",
@@ -59,46 +62,56 @@ const MainService = () => {
 								justifyContent: "center",
 							},
 							h3: {
-								bottom: ["60%", null, "60%"],
+								bottom: 0,
 							},
 							p: {
 								opacity: 1,
 							},
 						}}
 					>
-						<Container maxW="container.xl">
-							<Box boxSize="100%" textAlign="center" position="relative">
-								<Heading
-									as="h3"
-									color="white"
-									fontWeight="medium"
-									fontSize={["lg", null, "3xl"]}
-									position="absolute"
-									bottom={["60%", null, 0]}
-									left="0"
-									right="0"
-									transition="all linear 0.3s"
-									maxW="800px"
-									mx="auto"
+						<Container maxW="container.md">
+							<Stack
+								boxSize="100%"
+								textAlign="center"
+								position="relative"
+								justifyContent="center"
+								flexDirection="column"
+								spacing="4"
+							>
+								<Flex
+									height={["40%", null, "50%"]}
+									justifyContent="center"
+									alignItems="flex-end"
+									textAlign="center"
 								>
-									{title}
-								</Heading>
+									<Heading
+										as="h3"
+										color="white"
+										fontWeight="medium"
+										fontSize={["lg", null, "3xl"]}
+										transition="all linear 0.3s"
+										position="relative"
+										bottom={["0", null, "-130px"]}
+									>
+										{title}
+									</Heading>
+								</Flex>
 
-								<Text
-									color="white"
-									lineHeight={["tall", null, "taller"]}
-									opacity={[1, null, 0]}
-									position="absolute"
-									left="0"
-									right="0"
-									bottom="20%"
-									transition="all linear 0.3s"
-									maxW="800px"
-									mx="auto"
+								<Flex
+									height={["60%", null, "50%"]}
+									justifyContent="center"
+									textAlign="center"
 								>
-									{description}
-								</Text>
-							</Box>
+									<Text
+										color="white"
+										lineHeight={["tall", null, "taller"]}
+										opacity={[1, null, 0]}
+										transition="all linear 0.3s"
+									>
+										{description}
+									</Text>
+								</Flex>
+							</Stack>
 						</Container>
 
 						<Box
@@ -138,7 +151,7 @@ const SpecificService = () => {
 		<Container maxW="container.xl">
 			<Grid
 				templateColumns={["repeat(1, 1fr)", null, "repeat(2, 1fr)"]}
-				gap="6"
+				gap="1"
 			>
 				{[
 					{
@@ -204,41 +217,76 @@ const SpecificService = () => {
 									justifyContent: "center",
 								},
 								h3: {
-									bottom: ["70%", null, "50%"],
+									bottom: 0,
 								},
 								p: {
 									opacity: 1,
 								},
+								button: {
+									opacity: 1,
+								},
 							}}
 						>
-							<Box boxSize="100%" position="relative" textAlign="center">
-								<Heading
-									as="h3"
-									color="white"
-									fontWeight="medium"
-									fontSize={["lg", null, "3xl"]}
-									position="absolute"
-									bottom={["70%", null, "10"]}
-									left="10"
-									right="10"
-									transition="all linear 0.3s"
+							<Stack
+								boxSize="100%"
+								position="relative"
+								padding="6"
+								spacing="4"
+							>
+								<Flex
+									height="40%"
+									alignItems="flex-end"
+									justifyContent="center"
+									textAlign="center"
 								>
-									{title}
-								</Heading>
+									<Heading
+										as="h3"
+										color="white"
+										fontWeight="medium"
+										fontSize={["lg", null, "3xl"]}
+										position="relative"
+										bottom={["0", null, "-290px"]}
+										transition="all 0.5s"
+									>
+										{title}
+									</Heading>
+								</Flex>
 
-								<Text
-									color="white"
-									lineHeight="taller"
-									position="absolute"
-									bottom="30%"
-									left="10"
-									right="10"
-									opacity={[1, null, 0]}
-									transition="all linear 0.3s"
+								<Flex
+									height="50%"
+									textAlign="center"
+									alignItems="flex-start"
+									justifyContent="center"
 								>
-									{description}
-								</Text>
-							</Box>
+									<Text
+										color="white"
+										lineHeight="taller"
+										opacity={[1, null, 0]}
+										transition="all 0.7s"
+									>
+										{description}
+									</Text>
+								</Flex>
+
+								<Flex
+									height="10%"
+									textAlign="center"
+									alignItems="center"
+									justifyContent="center"
+								>
+									<Button
+										variant="link"
+										color="white"
+										opacity="0"
+										transition="all 0.4s"
+										onClick={() => {
+											alert("kkk");
+										}}
+									>
+										Read More
+									</Button>
+								</Flex>
+							</Stack>
 							<Box
 								position="absolute"
 								top={[4, null, 6]}
@@ -276,53 +324,10 @@ const ServicesPage = () => {
 	return (
 		<>
 			<Header />
-			<Box height={["250px", null, "400px"]} position="relative">
-				<NextImage
-					src="/services/main.png"
-					layout="fill"
-					objectFit="cover"
-				/>
-				<Flex
-					position="absolute"
-					top="0"
-					left="0"
-					bg="rgba(0, 0, 0, 0.4)"
-					width="100%"
-					height="100%"
-					justifyContent="center"
-					alignItems="center"
-				>
-					<Box position="relative">
-						<Text as="span" color="white" fontSize={["2xl", null, "4xl"]}>
-							SERVICES
-						</Text>
-						<Box height="2px" backgroundColor="white"></Box>
-						<Box
-							borderRadius="full"
-							backgroundColor="white"
-							boxSize="10px"
-							position="absolute"
-							bottom="calc(-5px)"
-							left="calc(50% - 5px)"
-						></Box>
-					</Box>
-				</Flex>
-			</Box>
-			<Box id="services">
-				<Container py="80px">
-					<Heading textAlign="center" color="#094E8F">
-						WHAT WE DO
-					</Heading>
-				</Container>
-			</Box>
+			<Banner title="SERVICES" />
+			<Title>WHAT WE DO</Title>
 			<MainService />
-			<Box id="services">
-				<Container py="80px">
-					<Heading textAlign="center" color="#094E8F">
-						OUR SERVICES
-					</Heading>
-				</Container>
-			</Box>
+			<Title>OUR SERVICES</Title>
 			<SpecificService />
 			<Box height="100px"></Box>
 			<Footer />
