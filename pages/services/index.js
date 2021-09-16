@@ -79,7 +79,7 @@ const MainService = () => {
 								spacing="4"
 							>
 								<Flex
-									height={["40%", null, "50%"]}
+									height={["30%", null, "40%"]}
 									justifyContent="center"
 									alignItems="flex-end"
 									textAlign="center"
@@ -91,16 +91,16 @@ const MainService = () => {
 										fontSize={["lg", null, "3xl"]}
 										transition="all linear 0.3s"
 										position="relative"
-										bottom={["0", null, "-130px"]}
+										bottom={["0", null, "-160px"]}
 									>
 										{title}
 									</Heading>
 								</Flex>
 
 								<Flex
-									height={["60%", null, "50%"]}
+									height={["70%", null, "60%"]}
 									justifyContent="center"
-									textAlign="center"
+									alignItems="flex-start"
 								>
 									<Text
 										color="white"
@@ -234,7 +234,7 @@ const SpecificService = () => {
 								spacing="4"
 							>
 								<Flex
-									height="40%"
+									height={["30%", null, "40%"]}
 									alignItems="flex-end"
 									justifyContent="center"
 									textAlign="center"
@@ -253,14 +253,14 @@ const SpecificService = () => {
 								</Flex>
 
 								<Flex
-									height="50%"
+									height={["60%", null, "50%"]}
 									textAlign="center"
 									alignItems="flex-start"
 									justifyContent="center"
 								>
 									<Text
 										color="white"
-										lineHeight="taller"
+										lineHeight="tall"
 										opacity={[1, null, 0]}
 										transition="all 0.7s"
 									>
@@ -277,7 +277,7 @@ const SpecificService = () => {
 									<Button
 										variant="link"
 										color="white"
-										opacity="0"
+										opacity={[1, null, 0]}
 										transition="all 0.4s"
 										onClick={() => {
 											alert("kkk");
