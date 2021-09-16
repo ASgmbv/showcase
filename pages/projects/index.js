@@ -9,8 +9,10 @@ import {
 	Text,
 	Wrap,
 	WrapItem,
+	Link,
 } from "@chakra-ui/react";
 import NextImage from "next/image";
+import NextLink from "next/link";
 import Footer from "@/components/footer";
 
 const filters = [
@@ -78,65 +80,64 @@ const Projects = () => {
 	return (
 		<Grid gap="1">
 			{projects.map(({ image, title, description }, idx) => (
-				<Box
-					key={title}
-					height="360px"
-					position="relative"
-					gridColumn={[null, null, getGridArea(idx)]}
-				>
-					<NextImage layout="fill" src={image} objectFit="cover" />
-					<Flex
-						position="absolute"
-						top="0"
-						left="0"
-						width="100%"
-						height="100%"
-						color="white"
-						justifyContent="center"
-						flexDir="column"
-						padding={[10, null, 14]}
-						bg={[
-							"rgba(77, 124, 142, 0.8)",
-							null,
-							null,
-							"rgba(77, 124, 142, 0.4)",
-						]}
-						_hover={{
-							backgroundColor: "rgba(77, 124, 142, 0.8)",
-							h3: {
-								transition: "all ease-in-out 0.3s",
-								opacity: 1,
-							},
-							p: {
-								transition: "all 0.5s",
-								opacity: 1,
-							},
-						}}
-						transition="all 0.4s"
-					>
-						<Heading
-							as="h3"
-							fontWeight="normal"
-							textAlign="center"
-							fontSize={["lg", null, "xl"]}
-							letterSpacing="wide"
-							opacity={[1, null, null, 0]}
-							mb="2"
-							transition="all ease-in-out 0.3s"
-						>
-							{title}
-						</Heading>
+				<NextLink key={title} href={`/projects/${idx}`} passHref>
+					<Link gridColumn={[null, null, getGridArea(idx)]}>
+						<Box height="360px" position="relative">
+							<NextImage layout="fill" src={image} objectFit="cover" />
+							<Flex
+								position="absolute"
+								top="0"
+								left="0"
+								width="100%"
+								height="100%"
+								color="white"
+								justifyContent="center"
+								flexDir="column"
+								padding={[10, null, 14]}
+								bg={[
+									"rgba(77, 124, 142, 0.8)",
+									null,
+									null,
+									"rgba(77, 124, 142, 0.4)",
+								]}
+								_hover={{
+									backgroundColor: "rgba(77, 124, 142, 0.8)",
+									h3: {
+										transition: "all ease-in-out 0.3s",
+										opacity: 1,
+									},
+									p: {
+										transition: "all 0.5s",
+										opacity: 1,
+									},
+								}}
+								transition="all 0.4s"
+							>
+								<Heading
+									as="h3"
+									fontWeight="normal"
+									textAlign="center"
+									fontSize={["lg", null, "xl"]}
+									letterSpacing="wide"
+									opacity={[1, null, null, 0]}
+									mb="2"
+									transition="all ease-in-out 0.3s"
+								>
+									{title}
+								</Heading>
 
-						<Text
-							opacity={[1, null, null, 0]}
-							fontSize={["sm"]}
-							textAlign="center"
-							transition="all ease-in-out 0.3s"
-						>
-							{description}
-						</Text>
-					</Flex>
-				</Box>
+								<Text
+									opacity={[1, null, null, 0]}
+									fontSize={["sm"]}
+									textAlign="center"
+									transition="all ease-in-out 0.3s"
+								>
+									{description}
+								</Text>
+							</Flex>
+						</Box>
+					</Link>
+				</NextLink>
 			))}
 		</Grid>
 	);

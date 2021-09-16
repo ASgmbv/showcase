@@ -1,29 +1,6 @@
 import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
 
-const items = [
-	{
-		title: "Beautiful Backyard",
-		description: "Muttontown, NY",
-		image: "/work1.jpg",
-	},
-	{
-		title: "Sophisticated Pool",
-		description: "Jamaica, NY",
-		image: "/work2.jpg",
-	},
-	{
-		title: "Maginificent Pool",
-		description: "Long Island, NY",
-		image: "/work3.jpg",
-	},
-	{
-		title: "Gorgeous Estate",
-		description: "Kings Point, NY",
-		image: "/work4.jpg",
-	},
-];
-
 function getGridArea(idx) {
 	if (idx === 0) {
 		return "1 / 1 / 2 / 3";
@@ -36,7 +13,7 @@ function getGridArea(idx) {
 	}
 }
 
-const Works = () => {
+const Works = ({ projects }) => {
 	return (
 		<>
 			<Box id="projects">
@@ -51,14 +28,19 @@ const Works = () => {
 				</Container>
 			</Box>
 			<Grid templateColumns={["1fr", null, "repeat(3, 1fr)"]} gap="1">
-				{items.map(({ title, description, image }, idx) => (
+				{projects.map(({ title, description, image }, idx) => (
 					<Box
 						key={title}
 						height="360px"
 						position="relative"
 						gridArea={[null, null, getGridArea(idx)]}
 					>
-						<NextImage layout="fill" src={image} objectFit="cover" />
+						<NextImage
+							{...image}
+							placeholder="blur"
+							layout="fill"
+							objectFit="cover"
+						/>
 						<Flex
 							position="absolute"
 							top="0"
