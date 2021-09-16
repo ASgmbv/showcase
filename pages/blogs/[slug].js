@@ -44,12 +44,16 @@ export async function getStaticPaths() {
 }
 
 const BlogPage = ({ blogPost }) => {
+	if (!blogPost) {
+		return <div>loading</div>;
+	}
+
 	return (
 		<>
 			<Header />
 			<Box height="400px" position="relative">
 				<NextImage
-					{...blogPost?.cover}
+					{...blogPost.cover}
 					layout="fill"
 					objectFit="cover"
 					placeholder="blur"
@@ -59,23 +63,23 @@ const BlogPage = ({ blogPost }) => {
 				<Container maxW="container.xl">
 					<Box>
 						<Text as="span" textTransform="uppercase">
-							{blogPost?.category}
+							{blogPost.category}
 						</Text>
 						<Heading mt="5" mb="5">
-							{blogPost?.title}
+							{blogPost.title}
 						</Heading>
 						<Flex alignItems="center" mb="10">
 							<CalendarIcon mr="2" />
 							<Text as="span" fontSize="sm">
 								{format(
-									new Date(blogPost?.createdAt),
+									new Date(blogPost.createdAt),
 									"dd MMM yyyy, EEEE p"
 								)}
 							</Text>
 						</Flex>
 						<Grid templateColumns="2fr 1fr" gap="100px">
 							<Box>
-								<RichText render={blogPost?.content} />
+								<RichText render={blogPost.content} />
 							</Box>
 							<Box bg="blue.400"></Box>
 						</Grid>
