@@ -4,7 +4,7 @@ import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { useKeenSlider } from "keen-slider/react";
 import NextImage from "next/image";
 import "keen-slider/keen-slider.min.css";
-
+//
 const ProjectImagesSlider = ({ images = [] }) => {
 	const [sliderRef] = useKeenSlider({
 		spacing: 50,
