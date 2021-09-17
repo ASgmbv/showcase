@@ -16,7 +16,7 @@ const Poster = ({ title, description, image, ...props }) => {
 				color="white"
 				justifyContent="center"
 				flexDir="column"
-				padding={[10, null, 14]}
+				padding={[6, null, 10]}
 				bg={[
 					"rgba(77, 124, 142, 0.8)",
 					null,
@@ -38,13 +38,13 @@ const Poster = ({ title, description, image, ...props }) => {
 			>
 				<Heading
 					as="h3"
-					fontWeight="normal"
+					fontWeight="medium"
 					textAlign="center"
-					fontSize={["lg", null, "xl"]}
+					fontSize={["lg", null, "2xl"]}
 					letterSpacing="wide"
 					opacity={[1, null, null, 0]}
-					mb="2"
 					transition="all ease-in-out 0.3s"
+					mb="3"
 				>
 					{title}
 				</Heading>

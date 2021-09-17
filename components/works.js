@@ -17,17 +17,16 @@ const Works = ({ projects }) => {
 					</Heading>
 				</Container>
 			</Box>
-			<Grid templateColumns={["1fr", null, "repeat(3, 1fr)"]} gap="1">
+			<Grid gap="1">
 				{projects.map(({ title, description, cover, slug }, idx) => (
-					<NextLink key={idx} href={`/projects/${slug}`}>
-						<Link>
+					<NextLink key={idx} href={`/projects/${slug}`} passHref>
+						<Link gridColumn={[null, null, getGridArea(idx)]}>
 							<Poster
 								key={idx}
 								title={title}
 								description={description}
 								image={cover}
 								height="360px"
-								gridColumn={[null, null, getGridArea(idx)]}
 							/>
 						</Link>
 					</NextLink>
