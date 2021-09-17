@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { getGridArea } from "lib/utils";
 import { queryProjects } from "lib/queries";
 import Poster from "@/components/poster";
+import Title from "@/components/title";
 
 export const getStaticProps = async () => {
 	const projects = await queryProjects();
@@ -43,8 +44,7 @@ const ProjectsPage = ({ projects }) => {
 		<>
 			<Header />
 			<Banner title="PROJECTS" />
-			{/* <Filters /> */}
-			<Box height="100px"></Box>
+			<Title>OUR WORKS</Title>
 			<Projects projects={projects} />
 			<Box height="100px"></Box>
 			<Footer />

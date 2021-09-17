@@ -3,15 +3,67 @@ import Header from "@/components/header";
 import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
 import Gallery from "@/components/gallery";
+import { queryProjectBySlug, queryProjects } from "lib/queries";
+import { getPlaiceholder } from "plaiceholder";
+import bannerImage from "../../public/blogs/main.png";
 
-const images = ["/work1.jpg", "/work2.jpg", "/work3.jpg", "/work4.jpg"];
+export async function getStaticProps({ params }) {
+	const project = await queryProjectBySlug(params.slug);
+	const { base64, img } = await getPlaiceholder(project.cover);
 
-const ProjectPage = () => {
+	delete img["width"];
+	delete img["height"];
+
+	return {
+		props: {
+			project,
+			cover: {
+				...img,
+				blurDataURL: base64,
+			},
+		},
+		revalidate: 1,
+	};
+}
+
+export async function getStaticPaths() {
+	const services = await queryProjects();
+	const paths = services.map(({ slug }) => ({
+		params: {
+			slug,
+		},
+	}));
+
+	return {
+		paths,
+		fallback: true,
+	};
+}
+
+const ProjectPage = ({ project, cover }) => {
+	if (!project) {
+		return <div>loading</div>;
+	}
+
 	return (
 		<>
 			<Header />
 			<Box height={["500px", null, "600px"]} position="relative">
-				<NextImage src="/blogs/main.png" layout="fill" objectFit="cover" />
+				{cover ? (
+					<NextImage
+						{...cover}
+						layout="fill"
+						objectFit="cover"
+						placeholder="blur"
+					/>
+				) : (
+					<NextImage
+						src={bannerImage}
+						layout="fill"
+						objectFit="cover"
+						placeholder="blur"
+					/>
+				)}
 
 				<Flex
 					position="absolute"
@@ -28,7 +80,7 @@ const ProjectPage = () => {
 							flexDirection="column"
 						>
 							<Heading as="span" color="white" mb="100px">
-								Italian Style Luxury Backyard
+								{project.title}
 							</Heading>
 							<Grid
 								display={["none", null, "grid"]}
@@ -97,7 +149,7 @@ const ProjectPage = () => {
 				>
 					<Box height={["300px", null, "500px"]}>
 						<Gallery
-							images={images}
+							images={project.gallery}
 							position="relative"
 							top={["-100px"]}
 						/>
@@ -151,15 +203,8 @@ const ProjectPage = () => {
 						))}
 					</Grid>
 					<Box>
-						<Heading mb="4">Italian Style Luxury</Heading>
-						<Text lineHeight="taller">
-							The lushly landscaped, open-air shopping mall has operated
-							at 100% occupancy for several decades. Opened in 1965, the
-							destination retail environment challenged commercial trends
-							of the time. A strong hierarchy, harmony, and flow guides
-							pedestrian usage patterns by creating a pleasant
-							experience.
-						</Text>
+						<Heading mb="4">{project.title}</Heading>
+						<Text lineHeight="taller">{project.description}</Text>
 					</Box>
 				</Grid>
 			</Container>
