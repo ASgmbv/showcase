@@ -8,24 +8,10 @@ import Works from "../components/works";
 import Head from "next/head";
 import Header from "../components/header";
 import { getPlaiceholder } from "plaiceholder";
-import { mainFeatures, mainProjects } from "../lib/data";
+import { mainProjects } from "../lib/data";
+import { queryServices } from "lib/queries";
 
 export const getStaticProps = async () => {
-	let features = mainFeatures.map(async (item) => {
-		const { base64, img } = await getPlaiceholder(item.image);
-
-		delete img["width"];
-		delete img["height"];
-
-		return {
-			...item,
-			image: {
-				...img,
-				blurDataURL: base64,
-			},
-		};
-	});
-
 	let projects = mainProjects.map(async (item) => {
 		const { base64, img } = await getPlaiceholder(item.image);
 
@@ -41,18 +27,21 @@ export const getStaticProps = async () => {
 		};
 	});
 
-	features = await Promise.all(features);
 	projects = await Promise.all(projects);
+
+	const services = await queryServices({
+		pageSize: 4,
+	});
 
 	return {
 		props: {
-			features,
 			projects,
+			services,
 		},
 	};
 };
 
-export default function Home({ features, projects }) {
+export default function Home({ services, projects }) {
 	return (
 		<>
 			<Head>
@@ -62,7 +51,7 @@ export default function Home({ features, projects }) {
 			<BannerSlider />
 			<Box position="relative">
 				<Header />
-				<Features features={features} />
+				<Features services={services} />
 				<Works projects={projects} />
 				<Testimonials />
 				<Form />
