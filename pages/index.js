@@ -7,29 +7,14 @@ import { Testimonials } from "../components/testimonials";
 import Works from "../components/works";
 import Head from "next/head";
 import Header from "../components/header";
-import { getPlaiceholder } from "plaiceholder";
-import { mainProjects } from "../lib/data";
-import { queryServices } from "lib/queries";
+import { queryProjects, queryServices } from "lib/queries";
 
 export const getStaticProps = async () => {
-	let projects = mainProjects.map(async (item) => {
-		const { base64, img } = await getPlaiceholder(item.image);
-
-		delete img["width"];
-		delete img["height"];
-
-		return {
-			...item,
-			image: {
-				...img,
-				blurDataURL: base64,
-			},
-		};
+	const services = await queryServices({
+		pageSize: 4,
 	});
 
-	projects = await Promise.all(projects);
-
-	const services = await queryServices({
+	const projects = await queryProjects({
 		pageSize: 4,
 	});
 
@@ -38,6 +23,7 @@ export const getStaticProps = async () => {
 			projects,
 			services,
 		},
+		revalidate: 1,
 	};
 };
 

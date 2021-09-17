@@ -21,6 +21,7 @@ export async function getStaticProps({ params }) {
 				blurDataURL: base64,
 			},
 		},
+		revalidate: 1,
 	};
 }
 
