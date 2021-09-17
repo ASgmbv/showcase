@@ -4,6 +4,10 @@ import NextLink from "next/link";
 
 const items = [
 	{
+		title: "Home",
+		link: "/",
+	},
+	{
 		title: "Services",
 		link: "/services",
 	},
