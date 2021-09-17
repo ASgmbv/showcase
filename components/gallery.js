@@ -1,6 +1,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import { Box } from "@chakra-ui/react";
 import NextImage from "next/image";
+import "keen-slider/keen-slider.min.css";
 
 const Gallery = ({ images = [], ...props }) => {
 	const [sliderRef] = useKeenSlider({
@@ -11,12 +12,12 @@ const Gallery = ({ images = [], ...props }) => {
 		<Box
 			ref={sliderRef}
 			className="keen-slider"
-			bg="gray.200"
 			boxSize="100%"
+			bg="gray.200"
 			{...props}
 		>
 			{images.map((image) => (
-				<Box key={image} className="keen-slider__slide">
+				<Box key={image} className="keen-slider__slide" boxSize="100%">
 					<NextImage src={image} layout="fill" objectFit="cover" />
 				</Box>
 			))}

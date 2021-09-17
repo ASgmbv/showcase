@@ -50,7 +50,7 @@ const ServicePage = ({ service, cover }) => {
 			<Container maxW="container.xl">
 				<Grid
 					templateColumns={["1fr", null, "1fr 2fr"]}
-					gap={[6, null, 10]}
+					gap={[6, null, "50px"]}
 					my="50px"
 					position="relative"
 				>
@@ -59,7 +59,7 @@ const ServicePage = ({ service, cover }) => {
 						<Text lineHeight="taller">{service.description}</Text>
 					</Box>
 					<Box height={["300px", null, "500px"]}>
-						<Gallery images={[]} />
+						<Gallery images={service.gallery} position="relative" />
 					</Box>
 				</Grid>
 			</Container>

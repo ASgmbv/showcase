@@ -2,7 +2,6 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
-import "keen-slider/keen-slider.min.css";
 import Gallery from "@/components/gallery";
 
 const images = ["/work1.jpg", "/work2.jpg", "/work3.jpg", "/work4.jpg"];
