@@ -110,7 +110,7 @@ const BlogPage = ({ blogPost, latestBlogPosts }) => {
 							</Text>
 						</Flex>
 						<Grid templateColumns="2fr 1fr" gap="100px">
-							<Box>
+							<Box className="blog-content">
 								<RichText render={blogPost.content} />
 							</Box>
 							<Box>
