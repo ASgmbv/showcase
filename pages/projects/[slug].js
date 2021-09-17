@@ -1,32 +1,9 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/react";
-import { useKeenSlider } from "keen-slider/react";
 import NextImage from "next/image";
 import "keen-slider/keen-slider.min.css";
-//
-const ProjectImagesSlider = ({ images = [] }) => {
-	const [sliderRef] = useKeenSlider({
-		spacing: 50,
-	});
-
-	return (
-		<Box
-			ref={sliderRef}
-			className="keen-slider"
-			height={["300px", null, "500px"]}
-			position="relative"
-			top={["-100px"]}
-			bg="gray.200"
-		>
-			{images.map((image) => (
-				<Box key={image} className="keen-slider__slide">
-					<NextImage src={image} layout="fill" objectFit="cover" />
-				</Box>
-			))}
-		</Box>
-	);
-};
+import Gallery from "@/components/gallery";
 
 const images = ["/work1.jpg", "/work2.jpg", "/work3.jpg", "/work4.jpg"];
 
@@ -119,7 +96,13 @@ const ProjectPage = () => {
 					my="50px"
 					position="relative"
 				>
-					<ProjectImagesSlider images={images} />
+					<Box height={["300px", null, "500px"]}>
+						<Gallery
+							images={images}
+							position="relative"
+							top={["-100px"]}
+						/>
+					</Box>
 					<Grid
 						display={["grid", null, "none"]}
 						templateColumns="1fr"
