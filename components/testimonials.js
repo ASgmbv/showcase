@@ -13,39 +13,6 @@ import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { ImQuotesRight } from "react-icons/im";
 import Title from "./title";
 
-// const items = [
-// 	{
-// 		name: "Shalima Hayden",
-// 		description: "Designer at Pluto",
-// 		testimonial:
-// 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
-// 	},
-// 	{
-// 		name: "John Black",
-// 		description: "Happy Customer",
-// 		testimonial:
-// 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
-// 	},
-// 	{
-// 		name: "Jessica  Adren",
-// 		description: "Oldest Customer",
-// 		testimonial:
-// 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
-// 	},
-// 	{
-// 		name: "John Black",
-// 		description: "First Time Customer",
-// 		testimonial:
-// 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
-// 	},
-// 	{
-// 		name: "Jessica  Adren",
-// 		description: "Engineer at Apple ",
-// 		testimonial:
-// 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
-// 	},
-// ];
-
 export const Testimonials = ({ testimonials }) => {
 	const slidesPerPage = useBreakpointValue({
 		base: 1,
