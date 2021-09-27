@@ -101,7 +101,10 @@ const Footer = () => {
 
 					<Stack spacing="4">
 						<Stack direction="row" spacing="4">
-							<Link>
+							<Link
+								href="https://www.instagram.com/italiaoutdoorlivingroup"
+								isExternal
+							>
 								<Circle
 									bg={"brandBlue"}
 									boxSize="8"

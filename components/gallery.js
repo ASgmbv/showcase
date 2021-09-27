@@ -1,9 +1,10 @@
 import { useKeenSlider } from "keen-slider/react";
-import { Box, Flex, Stack } from "@chakra-ui/react";
+import { Box, Flex, Icon, IconButton, Stack } from "@chakra-ui/react";
 import NextImage from "next/image";
 import "keen-slider/keen-slider.min.css";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 const MotionBox = motion(Box);
 
@@ -17,13 +18,12 @@ const Gallery = ({ images = [], ...props }) => {
 	});
 
 	return (
-		<Box position="relative" boxSize="100%">
+		<Box position="relative" boxSize="100%" {...props}>
 			<Box
 				ref={sliderRef}
 				className="keen-slider"
 				boxSize="100%"
 				bg="gray.200"
-				{...props}
 			>
 				{images.map((image) => (
 					<Box key={image} className="keen-slider__slide" boxSize="100%">
@@ -88,11 +88,64 @@ const Gallery = ({ images = [], ...props }) => {
 
 			<Flex
 				position="absolute"
-				bottom="10"
-				left="0"
-				width="100%"
-				justifyContent="center"
+				bottom={[6, null, 10]}
+				left={[6, null, 10]}
+				right={[6, null, 10]}
+				top={[6, null, 10]}
+				alignItems="center"
+				flexDir="column"
 			>
+				<Flex
+					width="100%"
+					justifyContent="space-between"
+					flex="1"
+					alignItems="center"
+				>
+					<IconButton
+						position="absolute"
+						top="calc(50% - 5px)"
+						left="0px"
+						width="10px"
+						zIndex="1"
+						borderRadius="full"
+						_hover={{
+							transform: "scale(1.1)",
+						}}
+						_active={{
+							boxShadow: "none",
+						}}
+						_focus={{
+							boxShadow: "none",
+						}}
+						bg={["gray.300"]}
+						icon={<Icon as={BsArrowLeft} boxSize="20px" />}
+						onClick={() => {
+							slider.prev(1);
+						}}
+					/>
+					<IconButton
+						position="absolute"
+						borderRadius="full"
+						right="0px"
+						width="10px"
+						top="calc(50% - 5px)"
+						zIndex="1"
+						_hover={{
+							transform: "scale(1.1)",
+						}}
+						_active={{
+							boxShadow: "none",
+						}}
+						_focus={{
+							boxShadow: "none",
+						}}
+						bg={["gray.300"]}
+						icon={<Icon as={BsArrowRight} boxSize="20px" />}
+						onClick={() => {
+							slider.next(1);
+						}}
+					/>
+				</Flex>
 				<Stack direction="row" spacing="3">
 					{[...Array(images.length)].map((_, idx) => (
 						<Box
