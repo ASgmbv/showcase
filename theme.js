@@ -60,12 +60,13 @@ const customTheme = extendTheme({
 		body: "Poppins, sans-serif",
 		heading: "Poppins, sans-serif",
 	},
+	colors: {
+		brandBlue: "#094E8F",
+		brandGreen: "#41B574",
+	},
 	components: {
 		Link: {
 			baseStyle: {
-				// _hover: {
-				// 	textDecoration: "none",
-				// },
 				_focus: {
 					boxShadow: "none",
 				},
@@ -73,8 +74,15 @@ const customTheme = extendTheme({
 		},
 		Button: {
 			baseStyle: {
+				borderRadius: 0,
+				fontWeight: "medium",
 				_focus: {
 					boxShadow: "none",
+				},
+			},
+			sizes: {
+				lg: {
+					fontSize: "md",
 				},
 			},
 		},

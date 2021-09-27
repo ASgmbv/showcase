@@ -33,7 +33,6 @@ const Gallery = ({ images = [], ...props }) => {
 			</Box>
 
 			<Box
-				// background="linear-gradient(180deg, rgba(77, 124, 142, 0.5) 0%, rgba(77, 124, 142, 0) 20%), linear-gradient(0deg, rgba(77, 124, 142, 0.5) 0%, rgba(77, 124, 142, 0) 20%),  linear-gradient(270deg, rgba(77, 124, 142, 0.5) 0%, rgba(77, 124, 142, 0) 20%), linear-gradient(90deg, rgba(77, 124, 142, 0.5) 0%, rgba(77, 124, 142, 0) 20%)"
 				background="rgba(77, 124, 142, 0.3)"
 				position="absolute"
 				top="0"

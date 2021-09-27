@@ -3,46 +3,45 @@ import {
 	Flex,
 	Icon,
 	IconButton,
-	Stack,
 	Text,
 	useBreakpointValue,
 	Container,
 	Heading,
-	Divider,
 } from "@chakra-ui/react";
 import { useKeenSlider } from "keen-slider/react";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-import NextImage from "next/image";
+import { ImQuotesRight } from "react-icons/im";
+import Title from "./title";
 
 const items = [
 	{
-		image: "/test1.png",
 		name: "Shalima Hayden",
-		desc:
+		description: "Designer at Pluto",
+		testimonial:
 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
 	},
 	{
-		image: "/test2.png",
 		name: "John Black",
-		desc:
+		description: "Happy Customer",
+		testimonial:
 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
 	},
 	{
-		image: "/test3.png",
 		name: "Jessica  Adren",
-		desc:
+		description: "Oldest Customer",
+		testimonial:
 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
 	},
 	{
-		image: "/test4.png",
 		name: "John Black",
-		desc:
+		description: "First Time Customer",
+		testimonial:
 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
 	},
 	{
-		image: "/test5.png",
 		name: "Jessica  Adren",
-		desc:
+		description: "Engineer at Apple ",
+		testimonial:
 			"Italy Outdoor Living Group is the friendliest and most efficient company I have ever used. The whole thing takes time to introduce the product and as a result puts forward only the best opportunities",
 	},
 ];
@@ -61,23 +60,16 @@ export const Testimonials = () => {
 	});
 
 	return (
-		<Box width="100%" py="80px" id="testimonials">
+		<Box width="100%" id="testimonials" pb="80px">
 			<Container maxW="container.lg">
-				<Heading
-					textAlign="center"
-					mb="20"
-					color="#094E8F"
-					textTransform="uppercase"
-				>
-					Testimonials
-				</Heading>
+				<Title>Testimonials</Title>
 
 				<Flex alignItems="center" position="relative">
 					<IconButton
 						position="absolute"
 						top="calc(50% - 25px)"
-						left={["20px", null, null, null, "-70px"]}
-						boxSize="50px"
+						left={["-25px", null, null, null, "-70px"]}
+						boxSize={["50px"]}
 						zIndex="1"
 						borderRadius="full"
 						_hover={{
@@ -106,31 +98,33 @@ export const Testimonials = () => {
 						className="keen-slider"
 						overflow="hidden"
 					>
-						{items.map(({ image, name, desc }, idx) => (
-							<Stack
+						{items.map(({ name, description, testimonial }, idx) => (
+							<Flex
 								key={idx}
 								position="relative"
 								className="keen-slider__slide"
 								spacing="4"
+								border="2px solid"
+								borderColor="brandBlue"
+								flexDir="column"
+								padding="6"
 							>
-								<Box
-									position="relative"
-									height={["300px", null, null, "270px"]}
-								>
-									<NextImage
-										src={image}
-										layout="fill"
-										objectFit="cover"
+								<Flex justifyContent="space-between">
+									<Box>
+										<Heading size="md">{name}</Heading>
+										<Text fontSize="sm">{description}</Text>
+									</Box>
+									<Icon
+										as={ImQuotesRight}
+										boxSize="6"
+										color="brandGreen"
 									/>
-								</Box>
-								<Heading size="sm" color="gray.600">
-									{name}
-								</Heading>
-								<Divider />
-								<Text fontSize="sm" color="gray.500">
-									{desc}
+								</Flex>
+
+								<Text color="gray.500" mt="6">
+									{testimonial}
 								</Text>
-							</Stack>
+							</Flex>
 						))}
 					</Flex>
 					<IconButton
@@ -138,7 +132,7 @@ export const Testimonials = () => {
 						borderRadius="full"
 						boxSize="50px"
 						top="calc(50% - 25px)"
-						right={["20px", null, null, null, "-70px"]}
+						right={["-25px", null, null, null, "-70px"]}
 						zIndex="1"
 						_hover={{
 							transform: "scale(1.2)",

@@ -18,11 +18,11 @@ const Form = () => {
 			<Grid templateColumns={["1fr", null, null, "repeat(3, 1fr)"]}>
 				<Box
 					gridColumn={[null, null, null, "1 / 3"]}
-					bg="#283646"
+					bg="brandBlue"
 					paddingY="20"
 				>
 					<Container>
-						<Stack spacing="8">
+						<Stack spacing="8" alignItems="flex-start">
 							<Heading color="white" size="2xl">
 								Get in Touch
 							</Heading>
@@ -38,7 +38,7 @@ const Form = () => {
 									<Input
 										borderRadius="0"
 										size="lg"
-										placeholder="Input your full name in here"
+										placeholder="Full Name"
 									/>
 								</FormControl>
 								<FormControl>
@@ -48,34 +48,22 @@ const Form = () => {
 									<Input
 										borderRadius="0"
 										size="lg"
-										placeholder="Input your full name in here"
+										placeholder="Email Address"
 									/>
 								</FormControl>
 							</Stack>
 							<FormControl>
 								<FormLabel color="white" fontWeight="bold">
-									Email Address
+									Messages
 								</FormLabel>
 								<Textarea
 									borderRadius="0"
-									placeholder="Write your messages in here"
+									placeholder="Your Message"
 									noOfLines="10"
 								/>
 							</FormControl>
-							<Button
-								borderRadius="0"
-								width="fit-content"
-								bg="#8BC441"
-								_hover={{
-									bg: "green.300",
-								}}
-								_active={{
-									bg: "green.300",
-								}}
-								color="white"
-								size="lg"
-							>
-								Send Messages
+							<Button size="lg" colorScheme="green">
+								Send Message
 							</Button>
 						</Stack>
 					</Container>

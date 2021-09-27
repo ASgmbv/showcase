@@ -1,29 +1,7 @@
-import { Box, Container, Flex, HStack, Link } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, HStack, Link } from "@chakra-ui/react";
+import { sitemap } from "lib/config";
 import NextImage from "next/image";
 import NextLink from "next/link";
-
-const items = [
-	{
-		title: "Home",
-		link: "/",
-	},
-	{
-		title: "Services",
-		link: "/services",
-	},
-	{
-		title: "Projects",
-		link: "/projects",
-	},
-	{
-		title: "Blog",
-		link: "/blogs",
-	},
-	{
-		title: "About Us",
-		link: "/",
-	},
-];
 
 const Header = () => {
 	return (
@@ -33,6 +11,7 @@ const Header = () => {
 			bg="white"
 			zIndex="99"
 			boxShadow="0 5px 12px rgb(77 124 142 / 25%)"
+			py="2"
 		>
 			<Container maxW="container.xl">
 				<Flex justifyContent="space-between">
@@ -54,23 +33,37 @@ const Header = () => {
 
 					<HStack
 						align="center"
-						spacing="6"
+						spacing="8"
 						display={["none", null, "flex"]}
 					>
-						{items.map(({ title, link }) => {
+						{sitemap.map(({ title, link }) => {
 							return (
-								<Link
-									key={link}
-									href={link}
-									fontWeight="bold"
-									_hover={{
-										color: "#8BC441",
-									}}
-								>
-									{title}
-								</Link>
+								<NextLink key={link} href={link} passHref>
+									<Link
+										_hover={{
+											color: "green.600",
+										}}
+									>
+										{title}
+									</Link>
+								</NextLink>
 							);
 						})}
+					</HStack>
+
+					<HStack spacing="8">
+						<NextLink href="/contacts" passHref>
+							<Link
+								_hover={{
+									color: "green.600",
+								}}
+							>
+								Contacts
+							</Link>
+						</NextLink>
+						<Button colorScheme="green" variant="outline">
+							Get Estimate
+						</Button>
 					</HStack>
 				</Flex>
 			</Container>

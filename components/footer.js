@@ -1,21 +1,21 @@
 import {
 	Box,
-	Button,
 	Circle,
 	Container,
 	Divider,
-	FormControl,
-	FormLabel,
+	Flex,
 	Grid,
 	Heading,
 	Icon,
-	Input,
+	Link,
 	Stack,
 	Text,
 } from "@chakra-ui/react";
 import NextImage from "next/image";
 import { MdLocationOn, MdMailOutline, MdPhone } from "react-icons/md";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { sitemap } from "lib/config";
+import NextLink from "next/link";
 
 const Footer = () => {
 	return (
@@ -29,37 +29,65 @@ const Footer = () => {
 						"repeat(2, 1fr)",
 						"repeat(4, 1fr)",
 					]}
-					gap="10"
-					py="50px"
+					gap="50px"
+					pt="80px"
+					pb="50px"
 				>
 					<Stack spacing="4">
 						<Box>
 							<NextImage src="/logo.png" width="140px" height="40px" />
 						</Box>
-						<Text color="#094E8F" fontSize="sm">
+						<Text color="#094E8F">
 							Our Group is Landscape Design company located in
 							Ohio,United States of America
 						</Text>
 					</Stack>
-					<Stack spacing="4">
+					<Stack spacing="5">
 						<Heading as="h3" size="md" color="#094E8F">
 							Get In Touch
 						</Heading>
-						<Stack direction="row">
+						<Stack direction="row" spacing="4">
+							<Icon as={MdPhone} boxSize="5" color="#094E8F" />
+							<Text fontSize="sm" color="brandBlue">
+								+1 631-518-3331
+							</Text>
+						</Stack>
+						<Stack direction="row" spacing="4">
+							<Icon as={MdMailOutline} boxSize="5" color="#094E8F" />
+							<Text fontSize="sm" color="brandBlue">
+								contact@italiaoutdoor.com
+							</Text>
+						</Stack>
+
+						<Stack direction="row" spacing="4">
 							<Icon as={MdLocationOn} boxSize="5" color="#094E8F" />
-							<Text fontSize="sm">
+							<Text fontSize="sm" color="brandBlue">
 								GLENWOOD LANDING 11543 NEW YORK - United States
 							</Text>
 						</Stack>
-						<Stack direction="row">
-							<Icon as={MdMailOutline} boxSize="5" color="#094E8F" />
-							<Text fontSize="sm">contact@italiaoutdoor.com</Text>
-						</Stack>
-						<Stack direction="row">
-							<Icon as={MdPhone} boxSize="5" color="#094E8F" />
-							<Text fontSize="sm">+1 631-518-3331</Text>
-						</Stack>
 					</Stack>
+
+					<Box>
+						<Heading
+							as="h3"
+							size="md"
+							color="#094E8F"
+							mb="4"
+							textAlign={["start", null, "center"]}
+						>
+							Sitemap
+						</Heading>
+						<Stack spacing="2" textAlign={["start", null, "center"]}>
+							{sitemap.map(({ title, link }) => {
+								return (
+									<NextLink key={link} href={link} passHref>
+										<Link color="brandBlue">{title}</Link>
+									</NextLink>
+								);
+							})}
+						</Stack>
+					</Box>
+
 					<Stack spacing="4">
 						<Stack direction="row" spacing="4">
 							<Circle bg="#094E8F" boxSize="8">
@@ -75,30 +103,23 @@ const Footer = () => {
 								<Icon as={FaTwitter} color="white" />
 							</Circle>
 						</Stack>
-						<Text>
+						<Text color="brandBlue">
 							Lorem ipsum dolor sit amet, consec tetur adipiscing elit,
 							sed do eiusmod.
 						</Text>
 					</Stack>
-					<Stack>
-						<Heading as="h3" size="md" color="#094E8F">
-							Join a Newsletter
-						</Heading>
-						<FormControl>
-							<FormLabel color="#77808B" fontWeight="thin">
-								Your Email
-							</FormLabel>
-							<Input mb="3" borderRadius="0" colorScheme="blue" />
-							<Button bg="#094E8F" color="white" borderRadius="0">
-								Subscribe
-							</Button>
-						</FormControl>
-					</Stack>
 				</Grid>
+				<Divider colorScheme="blue" />
+				<Divider colorScheme="blue" />
+				<Flex py="4" color="brandBlue" justifyContent="space-between">
+					<Text as="span" fontSize="sm">
+						© Italia Outdoor Living Group 2021
+					</Text>
+					<Text as="span" fontSize="sm">
+						Made by Nomad Soft LLC
+					</Text>
+				</Flex>
 			</Container>
-			{/* <Box py="4" borderTop="0.5px solid #094E8F" textAlign="center">
-				Nomad Studio
-			</Box> */}
 		</Box>
 	);
 };
