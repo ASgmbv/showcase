@@ -7,7 +7,7 @@ import { Testimonials } from "../components/testimonials";
 import Works from "../components/works";
 import Head from "next/head";
 import Header from "../components/header";
-import { queryProjects, queryServices } from "lib/queries";
+import { queryProjects, queryServices, queryTestimonials } from "lib/queries";
 
 export const getStaticProps = async () => {
 	const services = await queryServices({
@@ -18,16 +18,19 @@ export const getStaticProps = async () => {
 		pageSize: 4,
 	});
 
+	const testimonials = await queryTestimonials();
+
 	return {
 		props: {
 			projects,
 			services,
+			testimonials,
 		},
 		revalidate: 1,
 	};
 };
 
-export default function Home({ services, projects }) {
+export default function Home({ services, projects, testimonials }) {
 	return (
 		<>
 			<Head>
@@ -39,7 +42,7 @@ export default function Home({ services, projects }) {
 				<Header />
 				<Features services={services} />
 				<Works projects={projects} />
-				<Testimonials />
+				<Testimonials testimonials={testimonials} />
 				<Form />
 				<Footer />
 			</Box>
