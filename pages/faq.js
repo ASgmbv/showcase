@@ -5,7 +5,6 @@ import {
 	AccordionPanel,
 	Box,
 	Container,
-	Flex,
 	Grid,
 	Heading,
 	Icon,
