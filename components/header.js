@@ -1,9 +1,16 @@
 import { Box, Button, Container, Flex, HStack, Link } from "@chakra-ui/react";
 import { sitemap } from "lib/config";
+import { useRouter } from "next/router";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
 const Header = () => {
+	const router = useRouter();
+
+	console.log({ router });
+
+	// asPath
+
 	return (
 		<Box
 			position="sticky"
@@ -43,6 +50,11 @@ const Header = () => {
 										_hover={{
 											color: "green.600",
 										}}
+										color={
+											router.asPath === link
+												? "green.600"
+												: "gray.800"
+										}
 									>
 										{title}
 									</Link>
@@ -57,6 +69,11 @@ const Header = () => {
 								_hover={{
 									color: "green.600",
 								}}
+								color={
+									router.asPath === "/contacts"
+										? "green.600"
+										: "gray.800"
+								}
 							>
 								Contacts
 							</Link>

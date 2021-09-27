@@ -16,8 +16,11 @@ import { MdLocationOn, MdMailOutline, MdPhone } from "react-icons/md";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { sitemap } from "lib/config";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+	const router = useRouter();
+
 	return (
 		<Box as="footer">
 			<Divider />
@@ -81,7 +84,15 @@ const Footer = () => {
 							{sitemap.map(({ title, link }) => {
 								return (
 									<NextLink key={link} href={link} passHref>
-										<Link color="brandBlue">{title}</Link>
+										<Link
+											color={
+												router.asPath === link
+													? "brandGreen"
+													: "brandBlue"
+											}
+										>
+											{title}
+										</Link>
 									</NextLink>
 								);
 							})}
@@ -90,18 +101,54 @@ const Footer = () => {
 
 					<Stack spacing="4">
 						<Stack direction="row" spacing="4">
-							<Circle bg="#094E8F" boxSize="8">
-								<Icon as={FaInstagram} color="white" />
-							</Circle>
-							<Circle bg="#094E8F" boxSize="8">
-								<Icon as={FaFacebookF} color="white" />
-							</Circle>
-							<Circle bg="#094E8F" boxSize="8">
-								<Icon as={FaYoutube} color="white" />
-							</Circle>
-							<Circle bg="#094E8F" boxSize="8">
-								<Icon as={FaTwitter} color="white" />
-							</Circle>
+							<Link>
+								<Circle
+									bg={"brandBlue"}
+									boxSize="8"
+									_hover={{
+										bg: "#A032C2",
+									}}
+									transition="background-color 0.3s"
+								>
+									<Icon as={FaInstagram} color="white" />
+								</Circle>
+							</Link>
+							<Link>
+								<Circle
+									bg="brandBlue"
+									boxSize="8"
+									_hover={{
+										bg: "facebook.500",
+									}}
+									transition="background-color 0.3s"
+								>
+									<Icon as={FaFacebookF} color="white" />
+								</Circle>
+							</Link>
+							<Link>
+								<Circle
+									bg="brandBlue"
+									boxSize="8"
+									_hover={{
+										bg: "red.500",
+									}}
+									transition="background-color 0.3s"
+								>
+									<Icon as={FaYoutube} color="white" />
+								</Circle>
+							</Link>
+							<Link>
+								<Circle
+									bg="brandBlue"
+									boxSize="8"
+									_hover={{
+										bg: "twitter.500",
+									}}
+									transition="background-color 0.3s"
+								>
+									<Icon as={FaTwitter} color="white" />
+								</Circle>
+							</Link>
 						</Stack>
 						<Text color="brandBlue">
 							Lorem ipsum dolor sit amet, consec tetur adipiscing elit,

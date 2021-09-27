@@ -23,14 +23,18 @@ const Form = () => {
 				>
 					<Container>
 						<Stack spacing="8" alignItems="flex-start">
-							<Heading color="white" size="2xl">
+							<Heading color="white" fontSize={["3xl", null, "4xl"]}>
 								Get in Touch
 							</Heading>
 							<Text color="#A2A9B0">
 								Have a project in mind that you think we’d be a great
 								fit for it? We’d love to know what you’re thinking
 							</Text>
-							<Stack direction="row" spacing="6">
+							<Stack
+								direction={["column", null, "row"]}
+								spacing="6"
+								width="100%"
+							>
 								<FormControl>
 									<FormLabel color="white" fontWeight="bold">
 										Full Name
@@ -39,6 +43,7 @@ const Form = () => {
 										borderRadius="0"
 										size="lg"
 										placeholder="Full Name"
+										colorScheme="twitter"
 									/>
 								</FormControl>
 								<FormControl>
