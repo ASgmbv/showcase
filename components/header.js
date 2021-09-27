@@ -1,15 +1,31 @@
-import { Box, Button, Container, Flex, HStack, Link } from "@chakra-ui/react";
+import {
+	Box,
+	Button,
+	Container,
+	Drawer,
+	DrawerBody,
+	DrawerCloseButton,
+	DrawerContent,
+	DrawerHeader,
+	DrawerOverlay,
+	Flex,
+	Heading,
+	HStack,
+	Link,
+	Stack,
+	useDisclosure,
+} from "@chakra-ui/react";
 import { sitemap } from "lib/config";
 import { useRouter } from "next/router";
 import NextImage from "next/image";
 import NextLink from "next/link";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { useRef } from "react";
 
 const Header = () => {
 	const router = useRouter();
-
-	console.log({ router });
-
-	// asPath
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	const btnRef = useRef();
 
 	return (
 		<Box
@@ -21,7 +37,7 @@ const Header = () => {
 			py="2"
 		>
 			<Container maxW="container.xl">
-				<Flex justifyContent="space-between">
+				<Flex justifyContent="space-between" alignItems="center">
 					<NextLink href="/">
 						<a>
 							<Box
@@ -43,27 +59,29 @@ const Header = () => {
 						spacing="8"
 						display={["none", null, "flex"]}
 					>
-						{sitemap.map(({ title, link }) => {
-							return (
-								<NextLink key={link} href={link} passHref>
-									<Link
-										_hover={{
-											color: "green.600",
-										}}
-										color={
-											router.asPath === link
-												? "green.600"
-												: "gray.800"
-										}
-									>
-										{title}
-									</Link>
-								</NextLink>
-							);
-						})}
+						{sitemap
+							.filter((el) => el.title !== "Contacts")
+							.map(({ title, link }) => {
+								return (
+									<NextLink key={link} href={link} passHref>
+										<Link
+											_hover={{
+												color: "green.600",
+											}}
+											color={
+												router.asPath === link
+													? "green.600"
+													: "gray.800"
+											}
+										>
+											{title}
+										</Link>
+									</NextLink>
+								);
+							})}
 					</HStack>
 
-					<HStack spacing="8">
+					<HStack spacing="8" display={["none", null, "flex"]}>
 						<NextLink href="/contacts" passHref>
 							<Link
 								_hover={{
@@ -82,6 +100,60 @@ const Header = () => {
 							Get Estimate
 						</Button>
 					</HStack>
+
+					{/* for mobile */}
+					<HamburgerIcon
+						as="button"
+						display={["block", null, "none"]}
+						ref={btnRef}
+						onClick={onOpen}
+						boxSize="5"
+					/>
+
+					<Drawer
+						isOpen={isOpen}
+						placement="left"
+						onClose={onClose}
+						finalFocusRef={btnRef}
+					>
+						<DrawerOverlay />
+						<DrawerContent>
+							<DrawerCloseButton />
+							<DrawerHeader>
+								<Heading size="sm">Italia Outdoor Living</Heading>
+							</DrawerHeader>
+
+							<DrawerBody>
+								<Stack spacing="8" my="50px">
+									{sitemap.map(({ title, link }) => {
+										return (
+											<NextLink key={link} href={link} passHref>
+												<Link
+													_hover={{
+														color: "green.600",
+													}}
+													color={
+														router.asPath === link
+															? "green.600"
+															: "gray.800"
+													}
+												>
+													{title}
+												</Link>
+											</NextLink>
+										);
+									})}
+								</Stack>
+								<Button
+									colorScheme="green"
+									variant="outline"
+									width="100%"
+								>
+									Get Estimate
+								</Button>
+							</DrawerBody>
+						</DrawerContent>
+					</Drawer>
 				</Flex>
 			</Container>
 		</Box>

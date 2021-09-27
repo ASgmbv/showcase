@@ -62,6 +62,7 @@ const Form = () => {
 									Messages
 								</FormLabel>
 								<Textarea
+									size="lg"
 									borderRadius="0"
 									placeholder="Your Message"
 									noOfLines="10"
