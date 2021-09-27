@@ -18,6 +18,20 @@ import { useState } from "react";
 import Title from "@/components/title";
 import { Testimonials } from "@/components/testimonials";
 import NextLink from "next/link";
+import { queryTeamMembers, queryTestimonials } from "lib/queries";
+
+export const getStaticProps = async () => {
+	const testimonials = await queryTestimonials();
+	const teamMembers = await queryTeamMembers();
+
+	return {
+		props: {
+			testimonials,
+			teamMembers,
+		},
+		revalidate: 1,
+	};
+};
 
 const Introduction = () => {
 	return (
@@ -257,7 +271,7 @@ const team = [
 	},
 ];
 
-const Team = () => {
+const Team = ({ teamMembers }) => {
 	return (
 		<>
 			<Title>Our Team</Title>
@@ -265,7 +279,7 @@ const Team = () => {
 				templateColumns={["repeat(1, 1fr)", null, "repeat(3, 1fr)"]}
 				gap="10"
 			>
-				{team.map((member, idx) => (
+				{teamMembers.map((member, idx) => (
 					<TeamMemberCard key={idx} {...member} />
 				))}
 			</Grid>
@@ -275,7 +289,7 @@ const Team = () => {
 
 const TeamMemberCard = ({ name, position, photo }) => {
 	return (
-		<Box height={["250px", null, "400px"]} position="relative">
+		<Box height={["250px", null, "500px"]} position="relative">
 			<NextImage src={photo} layout="fill" objectFit="cover" />
 			<Box
 				position="absolute"
@@ -362,7 +376,7 @@ const TeamMemberCard = ({ name, position, photo }) => {
 	);
 };
 
-const AboutUsPage = () => {
+const AboutUsPage = ({ testimonials, teamMembers }) => {
 	return (
 		<>
 			<Header />
@@ -370,8 +384,8 @@ const AboutUsPage = () => {
 			<Container maxW="container.xl">
 				<Introduction />
 				<Expertise fields={fields} />
-				<Team />
-				<Testimonials />
+				<Team teamMembers={teamMembers} />
+				<Testimonials testimonials={testimonials} />
 			</Container>
 			<Form />
 			<Footer />
