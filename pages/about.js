@@ -243,34 +243,6 @@ const Expertise = ({ fields }) => {
 	);
 };
 
-const team = [
-	{
-		name: "Name 1",
-		photo: "/test1.png",
-		position: "Position 1",
-	},
-	{
-		name: "Name 2",
-		photo: "/test2.png",
-		position: "Position 2",
-	},
-	{
-		name: "Name 3",
-		photo: "/test3.png",
-		position: "Position 3",
-	},
-	{
-		name: "Name 4",
-		photo: "/test4.png",
-		position: "Position 4",
-	},
-	{
-		name: "Name 5",
-		photo: "/test5.png",
-		position: "Position 5",
-	},
-];
-
 const Team = ({ teamMembers }) => {
 	return (
 		<>
