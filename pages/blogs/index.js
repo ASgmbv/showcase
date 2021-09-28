@@ -20,7 +20,7 @@ import NextLink from "next/link";
 import { getPlaiceholder } from "plaiceholder";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
-import banner from "../../public/banners/4.jpg";
+import banner from "../../public/banner/4.jpg";
 
 export const getStaticProps = async () => {
 	let blogPosts = await queryBlogPosts();

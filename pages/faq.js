@@ -19,7 +19,7 @@ import Title from "@/components/title";
 import { MdMail, MdPhone } from "react-icons/md";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
-import banner from "../public/banners/3.jpg";
+import banner from "../public/banner/3.jpg";
 
 const faqs = [
 	{

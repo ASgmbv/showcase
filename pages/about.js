@@ -22,7 +22,7 @@ import { queryTeamMembers, queryTestimonials } from "lib/queries";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
 import introductionImage from "../public/bg1.jpg";
-import banner from "../public/banners/2.jpg";
+import banner from "../public/banner/2.jpg";
 
 export const getStaticProps = async () => {
 	const testimonials = await queryTestimonials();
@@ -111,31 +111,31 @@ const MotionBox = motion(Box);
 const fields = [
 	{
 		title: "marble",
-		image: "/banners/1.jpg",
+		image: "/banner/1.jpg",
 	},
 	{
 		title: "travertine patios",
-		image: "/banners/2.jpg",
+		image: "/banner/2.jpg",
 	},
 	{
 		title: "walkways",
-		image: "/banners/3.jpg",
+		image: "/banner/3.jpg",
 	},
 	{
 		title: "landscaping",
-		image: "/banners/4.jpg",
+		image: "/banner/4.jpg",
 	},
 	{
 		title: "pergolas",
-		image: "/banners/5.jpg",
+		image: "/banner/5.jpg",
 	},
 	{
 		title: "outdoor pavillions",
-		image: "/banners/6.jpg",
+		image: "/banner/6.jpg",
 	},
 	{
 		title: "pool houses",
-		image: "/banners/7.jpg",
+		image: "/banner/7.jpg",
 	},
 ];
 

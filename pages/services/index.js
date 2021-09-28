@@ -8,7 +8,7 @@ import { queryServices } from "lib/queries";
 import NextLink from "next/link";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
-import banner from "../../public/banners/8.jpg";
+import banner from "../../public/banner/8.jpg";
 
 export const getStaticProps = async () => {
 	const services = await queryServices();

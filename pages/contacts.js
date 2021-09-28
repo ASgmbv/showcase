@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { getPageTitle } from "lib/config";
 import { NextSeo } from "next-seo";
-import banner from "../public/banners/5.jpg";
+import banner from "../public/banner/5.jpg";
 
 const ContactsPage = () => {
 	return (
