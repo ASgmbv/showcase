@@ -6,9 +6,6 @@ import {
 	Box,
 	Container,
 	Grid,
-	Heading,
-	Icon,
-	Stack,
 	Text,
 } from "@chakra-ui/react";
 import Banner from "@/components/banner";
@@ -20,6 +17,7 @@ import { MdMail, MdPhone } from "react-icons/md";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
 import banner from "../public/banner/3.jpg";
+import ContactsCard from "@/components/contacts-card";
 
 const faqs = [
 	{
@@ -132,21 +130,8 @@ const FaqsPage = () => {
 							title: "contact@italiaoutdoor.com",
 							subtitle: "Alternative way to get anwser faster.",
 						},
-					].map(({ icon, title, subtitle }, idx) => (
-						<Stack
-							key={idx}
-							border="1px solid #E5EAF4"
-							alignItems="center"
-							justifyContent="center"
-							padding="10"
-							spacing="3"
-							borderRadius="10px"
-							boxShadow="0px 7.84516px 13.0753px rgba(0, 0, 0, 0.03)"
-						>
-							<Icon as={icon} boxSize="6" color="#1565D8" />
-							<Heading size="sm">{title}</Heading>
-							<Text>{subtitle}</Text>
-						</Stack>
+					].map((data, idx) => (
+						<ContactsCard key={idx} {...data} />
 					))}
 				</Grid>
 			</Container>
