@@ -261,7 +261,7 @@ const Team = ({ teamMembers }) => {
 
 const TeamMemberCard = ({ name, position, photo }) => {
 	return (
-		<Box height={["250px", null, "500px"]} position="relative">
+		<Box height={["450px", null, "500px"]} position="relative">
 			<NextImage src={photo} layout="fill" objectFit="cover" />
 			<Box
 				position="absolute"

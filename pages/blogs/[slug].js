@@ -122,7 +122,7 @@ const BlogPage = ({ blogPost, latestBlogPosts }) => {
 										({ id, title, createdAt, cover, slug }) => (
 											<NextLink
 												key={id}
-												href={`blogs/${slug}`}
+												href={`/blogs/${slug}`}
 												passHref
 											>
 												<Link>
