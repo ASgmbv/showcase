@@ -9,6 +9,8 @@ import Header from "../components/header";
 import { queryProjects, queryServices, queryTestimonials } from "lib/queries";
 import { NextSeo } from "next-seo";
 
+//
+
 export const getStaticProps = async () => {
 	const services = await queryServices({
 		pageSize: 4,
