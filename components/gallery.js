@@ -3,10 +3,8 @@ import { Box, Flex, Icon, IconButton, Stack } from "@chakra-ui/react";
 import NextImage from "next/image";
 import "keen-slider/keen-slider.min.css";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-
-const MotionBox = motion(Box);
+import { MotionBox } from "./motion";
 
 const Gallery = ({ images = [], ...props }) => {
 	const [currIdx, setCurrIdx] = useState(0);

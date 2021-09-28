@@ -1,21 +1,12 @@
-import { Box, Button, Container, Grid, Heading, Link } from "@chakra-ui/react";
+import { Button, Grid, Link } from "@chakra-ui/react";
 import Card from "./card";
 import NextLink from "next/link";
+import Title from "./title";
 
 const Features = ({ services }) => {
 	return (
 		<>
-			<Box id="services">
-				<Container py="80px">
-					<Heading
-						textAlign="center"
-						color="#094E8F"
-						textTransform="uppercase"
-					>
-						Our Services
-					</Heading>
-				</Container>
-			</Box>
+			<Title>Our Services</Title>
 			<Grid
 				templateColumns={[
 					"1fr",

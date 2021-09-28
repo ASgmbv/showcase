@@ -1,17 +1,8 @@
-import {
-	Box,
-	Container,
-	Flex,
-	Heading,
-	HStack,
-	IconButton,
-} from "@chakra-ui/react";
+import { Box, Container, Flex, HStack, IconButton } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { AnimatePresence, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
-
-const MotionHeading = motion(Heading);
-const MotionBox = motion(Box);
+import { MotionBox, MotionHeading } from "./motion";
 
 const BannerSlider = () => {
 	const slides = [

@@ -12,7 +12,7 @@ import {
 	Stack,
 	Text,
 } from "@chakra-ui/react";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import NextImage from "next/image";
 import { useState } from "react";
 import Title from "@/components/title";
@@ -23,6 +23,8 @@ import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
 import introductionImage from "../public/bg1.jpg";
 import banner from "../public/banner/2.jpg";
+import { useFadeIn } from "lib/hooks";
+import { MotionBox, MotionHeading } from "@/components/motion";
 
 export const getStaticProps = async () => {
 	const testimonials = await queryTestimonials();
@@ -38,6 +40,8 @@ export const getStaticProps = async () => {
 };
 
 const Introduction = () => {
+	const [ref, animation, variants] = useFadeIn();
+
 	return (
 		<Grid
 			templateColumns={["repeat(1, 1fr)", null, "repeat(2, 1fr)"]}
@@ -45,9 +49,16 @@ const Introduction = () => {
 			my={["60px", null, "80px"]}
 		>
 			<Stack justifyContent="center" alignItems="flex-start" spacing="8">
-				<Heading color="brandBlue" textAlign={["center", null, "start"]}>
+				<MotionHeading
+					ref={ref}
+					initial="hidden"
+					variants={variants}
+					animate={animation}
+					color="brandBlue"
+					textAlign={["center", null, "start"]}
+				>
 					Welcome to Italia Outdoor Living
-				</Heading>
+				</MotionHeading>
 				<Text lineHeight="taller" color="gray.600">
 					For over 2 decades, Italia Outdoor Living has been Long Island’s
 					leading provider of concrete pool construction and custom outdoor
@@ -106,8 +117,6 @@ const Introduction = () => {
 	);
 };
 
-const MotionBox = motion(Box);
-
 const fields = [
 	{
 		title: "marble",
@@ -139,10 +148,9 @@ const fields = [
 	},
 ];
 
-const MotionHeading = motion(Heading);
-
 const Expertise = ({ fields }) => {
 	const [currIdx, setCurrIdx] = useState(0);
+	const [ref, variants, animation] = useFadeIn();
 
 	return (
 		<Grid templateColumns={["1fr", null, "repeat(2, 1fr)"]} gap="50px">
@@ -273,9 +281,16 @@ const Expertise = ({ fields }) => {
 				justifyContent="center"
 				textAlign={["center", null, "start"]}
 			>
-				<Heading mb="8" color="brandBlue">
+				<MotionHeading
+					mb="8"
+					color="brandBlue"
+					animate={animation}
+					ref={ref}
+					variants={variants}
+					initial="hidden"
+				>
 					We are experts in:
-				</Heading>
+				</MotionHeading>
 
 				<AnimateSharedLayout>
 					<Stack alignItems="flex-start" spacing="5">

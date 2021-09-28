@@ -21,9 +21,8 @@ import NextImage from "next/image";
 import NextLink from "next/link";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRef, useState } from "react";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
-
-const MotionBox = motion(Box);
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { MotionBox } from "./motion";
 
 const Header = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
