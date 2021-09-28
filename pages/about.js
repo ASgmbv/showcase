@@ -21,6 +21,8 @@ import NextLink from "next/link";
 import { queryTeamMembers, queryTestimonials } from "lib/queries";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
+import introductionImage from "../public/bg1.jpg";
+import banner from "../public/banners/2.jpg";
 
 export const getStaticProps = async () => {
 	const testimonials = await queryTestimonials();
@@ -43,11 +45,7 @@ const Introduction = () => {
 			my={["60px", null, "80px"]}
 		>
 			<Stack justifyContent="center" alignItems="flex-start" spacing="8">
-				<Heading
-					color="brandBlue"
-					// fontSize={["2xl", null, "4xl"]}
-					textAlign={["center", null, "start"]}
-				>
+				<Heading color="brandBlue" textAlign={["center", null, "start"]}>
 					Welcome to Italia Outdoor Living
 				</Heading>
 				<Text lineHeight="taller" color="gray.600">
@@ -68,7 +66,12 @@ const Introduction = () => {
 				height="500px"
 				display={["none", null, "block"]}
 			>
-				<NextImage layout="fill" objectFit="cover" src="/bg1.jpg" />
+				<NextImage
+					layout="fill"
+					objectFit="cover"
+					src={introductionImage}
+					placeholder="blur"
+				/>
 				<Box
 					background="rgba(77, 124, 142, 0.3)"
 					position="absolute"
@@ -108,31 +111,31 @@ const MotionBox = motion(Box);
 const fields = [
 	{
 		title: "marble",
-		image: "/test1.png",
+		image: "/banners/1.jpg",
 	},
 	{
 		title: "travertine patios",
-		image: "/test2.png",
+		image: "/banners/2.jpg",
 	},
 	{
 		title: "walkways",
-		image: "/test3.png",
+		image: "/banners/3.jpg",
 	},
 	{
 		title: "landscaping",
-		image: "/test4.png",
+		image: "/banners/4.jpg",
 	},
 	{
 		title: "pergolas",
-		image: "/test5.png",
+		image: "/banners/5.jpg",
 	},
 	{
 		title: "outdoor pavillions",
-		image: "/work1.jpg",
+		image: "/banners/6.jpg",
 	},
 	{
 		title: "pool houses",
-		image: "/work2.jpg",
+		image: "/banners/7.jpg",
 	},
 ];
 
@@ -356,7 +359,12 @@ const AboutUsPage = ({ testimonials, teamMembers }) => {
 			<NextSeo title={getPageTitle("About Us")} />
 
 			<Header />
-			<Banner title="ABOUT US" />
+			<Banner
+				title="ABOUT US"
+				image={{
+					src: banner,
+				}}
+			/>
 			<Container maxW="container.xl">
 				<Introduction />
 				<Expertise fields={fields} />

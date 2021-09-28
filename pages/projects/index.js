@@ -9,6 +9,7 @@ import Poster from "@/components/poster";
 import Title from "@/components/title";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
+import banner from "../../public/banners/4.jpg";
 
 export const getStaticProps = async () => {
 	const projects = await queryProjects();
@@ -47,7 +48,12 @@ const ProjectsPage = ({ projects }) => {
 			<NextSeo title={getPageTitle("Projects")} />
 
 			<Header />
-			<Banner title="PROJECTS" />
+			<Banner
+				title="PROJECTS"
+				image={{
+					src: banner,
+				}}
+			/>
 			<Title>OUR WORKS</Title>
 			<Projects projects={projects} />
 			<Box height="100px"></Box>

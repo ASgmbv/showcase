@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { getPageTitle } from "lib/config";
 import { NextSeo } from "next-seo";
+import banner from "../public/banners/5.jpg";
 
 const ContactsPage = () => {
 	return (
@@ -10,7 +11,12 @@ const ContactsPage = () => {
 			<NextSeo title={getPageTitle("Contacts")} />
 
 			<Header />
-			<Banner title="CONTACTS" />
+			<Banner
+				title="CONTACTS"
+				image={{
+					src: banner,
+				}}
+			/>
 			<Footer />
 		</>
 	);

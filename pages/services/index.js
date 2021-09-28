@@ -8,6 +8,7 @@ import { queryServices } from "lib/queries";
 import NextLink from "next/link";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
+import banner from "../../public/banners/8.jpg";
 
 export const getStaticProps = async () => {
 	const services = await queryServices();
@@ -54,7 +55,12 @@ const ServicesPage = ({ services }) => {
 			<NextSeo title={getPageTitle("Services")} />
 
 			<Header />
-			<Banner title="SERVICES" />
+			<Banner
+				title="SERVICES"
+				image={{
+					src: banner,
+				}}
+			/>
 			<Title>WHAT WE DO</Title>
 			<SpecificService services={services} />
 			<Box height="100px"></Box>

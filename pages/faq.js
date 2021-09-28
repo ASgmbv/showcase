@@ -19,6 +19,7 @@ import Title from "@/components/title";
 import { MdMail, MdPhone } from "react-icons/md";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
+import banner from "../public/banners/3.jpg";
 
 const faqs = [
 	{
@@ -97,7 +98,12 @@ const FaqsPage = () => {
 			<NextSeo title={getPageTitle("FAQs")} />
 
 			<Header />
-			<Banner title="FAQs" />
+			<Banner
+				title="FAQs"
+				image={{
+					src: banner,
+				}}
+			/>
 			<Container maxW="container.xl">
 				<Faqs />
 				<Title color="green.400" pb="4">
