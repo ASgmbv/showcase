@@ -5,7 +5,6 @@ import Form from "../components/form";
 import BannerSlider from "../components/slider";
 import { Testimonials } from "../components/testimonials";
 import Works from "../components/works";
-import Head from "next/head";
 import Header from "../components/header";
 import { queryProjects, queryServices, queryTestimonials } from "lib/queries";
 import { NextSeo } from "next-seo";
