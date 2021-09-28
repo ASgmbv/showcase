@@ -122,6 +122,7 @@ const Gallery = ({ images = [], ...props }) => {
 						onClick={() => {
 							slider.prev(1);
 						}}
+						isDisabled={currIdx === 0}
 					/>
 					<IconButton
 						position="absolute"
@@ -144,6 +145,7 @@ const Gallery = ({ images = [], ...props }) => {
 						onClick={() => {
 							slider.next(1);
 						}}
+						isDisabled={currIdx === images.length - 1}
 					/>
 				</Flex>
 				<Stack direction="row" spacing="3">

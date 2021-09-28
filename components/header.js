@@ -20,12 +20,17 @@ import { useRouter } from "next/router";
 import NextImage from "next/image";
 import NextLink from "next/link";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const Header = () => {
-	const router = useRouter();
 	const { isOpen, onOpen, onClose } = useDisclosure();
+	const router = useRouter();
 	const btnRef = useRef();
+
+	const [hoveredIdx, setHoveredIdx] = useState(null);
 
 	return (
 		<Box
@@ -54,32 +59,62 @@ const Header = () => {
 						</a>
 					</NextLink>
 
-					<HStack
-						align="center"
-						spacing="8"
-						display={["none", null, "flex"]}
-					>
-						{sitemap
-							.filter((el) => el.title !== "Contacts")
-							.map(({ title, link }) => {
-								return (
-									<NextLink key={link} href={link} passHref>
-										<Link
-											_hover={{
-												color: "green.600",
-											}}
-											color={
-												router.asPath === link
-													? "green.600"
-													: "gray.800"
-											}
-										>
-											{title}
-										</Link>
-									</NextLink>
-								);
-							})}
-					</HStack>
+					<AnimateSharedLayout>
+						<HStack
+							align="center"
+							spacing="8"
+							display={["none", null, "flex"]}
+							onMouseLeave={() => {
+								setHoveredIdx(null);
+							}}
+						>
+							{sitemap
+								.filter((el) => el.title !== "Contacts")
+								.map(({ title, link }, idx) => {
+									return (
+										<NextLink key={link} href={link} passHref>
+											<Link
+												_hover={{
+													color: "green.600",
+												}}
+												color={
+													router.asPath === link
+														? "green.600"
+														: "gray.800"
+												}
+												position="relative"
+												onMouseEnter={() => {
+													setHoveredIdx(idx);
+												}}
+											>
+												{title}
+												{hoveredIdx === idx && (
+													<AnimatePresence>
+														<MotionBox
+															key={idx}
+															layoutId="hovered"
+															position="absolute"
+															left="0"
+															right="0"
+															bottom="-10px"
+															height="2px"
+															bg="brandGreen"
+															transition={{
+																opacity: { duration: 2 },
+															}}
+															exit={{
+																opacity: 0,
+																transition: { duration: 2 },
+															}}
+														></MotionBox>
+													</AnimatePresence>
+												)}
+											</Link>
+										</NextLink>
+									);
+								})}
+						</HStack>
+					</AnimateSharedLayout>
 
 					<HStack spacing="8" display={["none", null, "flex"]}>
 						<NextLink href="/contacts" passHref>
