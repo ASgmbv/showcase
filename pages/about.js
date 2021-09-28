@@ -12,7 +12,7 @@ import {
 	Stack,
 	Text,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import NextImage from "next/image";
 import { useState } from "react";
 import Title from "@/components/title";
@@ -139,6 +139,8 @@ const fields = [
 	},
 ];
 
+const MotionHeading = motion(Heading);
+
 const Expertise = ({ fields }) => {
 	const [currIdx, setCurrIdx] = useState(0);
 
@@ -150,12 +152,37 @@ const Expertise = ({ fields }) => {
 				height="500px"
 				display={["none", null, "block"]}
 			>
-				<Box boxSize="100%">
-					<NextImage
-						src={fields[currIdx].image}
-						layout="fill"
-						objectFit="cover"
-					/>
+				<Box boxSize="100%" overflow="hidden" position="relative">
+					<AnimatePresence>
+						<MotionBox
+							layout
+							key={currIdx}
+							bg={`url(${fields[currIdx].image})`}
+							backgroundSize="cover"
+							backgroundPosition="center"
+							boxSize="100%"
+							objectFit="cover"
+							position="absolute"
+							top="0"
+							bottom="0"
+							left="0"
+							right="0"
+							initial={{
+								opacity: 0,
+							}}
+							animate={{
+								scale: 1.1,
+								opacity: 1,
+							}}
+							exit={{
+								opacity: 0,
+							}}
+							transition={{
+								scale: { duration: 10 },
+								opacity: { duration: 1 },
+							}}
+						/>
+					</AnimatePresence>
 				</Box>
 
 				<Flex
@@ -168,9 +195,31 @@ const Expertise = ({ fields }) => {
 					alignItems="flex-end"
 					padding={[8, null, 10]}
 				>
-					<Heading size="md" color="white" textTransform="capitalize">
-						{fields[currIdx].title}
-					</Heading>
+					<AnimatePresence exitBeforeEnter>
+						<MotionHeading
+							key={fields[currIdx].title}
+							size="md"
+							color="white"
+							textTransform="capitalize"
+							transition={{
+								duration: 0.5,
+							}}
+							initial={{
+								opacity: 0,
+							}}
+							animate={{
+								opacity: 1,
+							}}
+							exit={{
+								opacity: 0,
+								transition: {
+									duration: 0.5,
+								},
+							}}
+						>
+							{fields[currIdx].title}
+						</MotionHeading>
+					</AnimatePresence>
 				</Flex>
 
 				<MotionBox
@@ -227,22 +276,39 @@ const Expertise = ({ fields }) => {
 				<Heading mb="8" color="brandBlue">
 					We are experts in:
 				</Heading>
-				<Stack alignItems="flex-start" spacing="5">
-					{fields.map((field, idx) => (
-						<Button
-							key={field.title}
-							variant="link"
-							textTransform="uppercase"
-							color={idx === currIdx ? "gray.800" : "gray.500"}
-							fontWeight="normal"
-							onClick={() => {
-								setCurrIdx(idx);
-							}}
-						>
-							{`0${idx + 1}. ${field.title}`}
-						</Button>
-					))}
-				</Stack>
+
+				<AnimateSharedLayout>
+					<Stack alignItems="flex-start" spacing="5">
+						{fields.map((field, idx) => (
+							<Button
+								key={field.title}
+								variant="link"
+								textTransform="uppercase"
+								color={idx === currIdx ? "gray.800" : "gray.500"}
+								fontWeight="normal"
+								onClick={() => {
+									setCurrIdx(idx);
+								}}
+								position="relative"
+							>
+								{currIdx === idx && (
+									<MotionBox
+										display={["none", null, "block"]}
+										position="absolute"
+										top="-10px"
+										bottom="-10px"
+										left="-20px"
+										right="-20px"
+										layoutId="outline"
+										bg="gray.100"
+										borderRadius="full"
+									></MotionBox>
+								)}
+								<Box zIndex="10">{`${field.title}`}</Box>
+							</Button>
+						))}
+					</Stack>
+				</AnimateSharedLayout>
 			</Flex>
 		</Grid>
 	);
