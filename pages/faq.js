@@ -18,34 +18,20 @@ import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
 import banner from "../public/banner/3.jpg";
 import ContactsCard from "@/components/contacts-card";
+import { queryFAQs } from "lib/queries";
 
-const faqs = [
-	{
-		question: "How do I pay for the Essentials or Premium plan?",
-		answer:
-			"You can pay with a credit card or via net banking (if you’re in United States). We will renew your subscription automatically at the end of every billing cycle.",
-	},
-	{
-		question:
-			"Can I cancel my Essentials or Premium plan subscription at any time?",
-		answer:
-			"You can pay with a credit card or via net banking (if you’re in United States). We will renew your subscription automatically at the end of every billing cycle.",
-	},
-	{
-		question:
-			"We need to add new users to our team. How will that be billed?",
-		answer:
-			"You can pay with a credit card or via net banking (if you’re in United States). We will renew your subscription automatically at the end of every billing cycle.",
-	},
-	{
-		question:
-			"My team wants to cancel its subscription. How do we do that? Can we get a refund?",
-		answer:
-			"You can pay with a credit card or via net banking (if you’re in United States). We will renew your subscription automatically at the end of every billing cycle.",
-	},
-];
+export const getStaticProps = async () => {
+	const faqs = await queryFAQs();
 
-const Faqs = () => {
+	return {
+		props: {
+			faqs,
+		},
+		revalidate: 1,
+	};
+};
+
+const Faqs = ({ faqs }) => {
 	return (
 		<Accordion allowToggle={true} allowMultiple={true} pt="80px">
 			{faqs.map(({ question, answer }, idx) => (
@@ -90,7 +76,7 @@ const Faqs = () => {
 	);
 };
 
-const FaqsPage = () => {
+const FaqsPage = ({ faqs }) => {
 	return (
 		<>
 			<NextSeo title={getPageTitle("FAQs")} />
@@ -103,7 +89,7 @@ const FaqsPage = () => {
 				}}
 			/>
 			<Container maxW="container.xl">
-				<Faqs />
+				<Faqs faqs={faqs} />
 				<Title color="green.400" pb="4">
 					Still have a questions?
 				</Title>

@@ -72,10 +72,14 @@ export const Testimonials = ({ testimonials }) => {
 									position="relative"
 									className="keen-slider__slide"
 									spacing="4"
-									border="2px solid"
+									border="1px solid"
 									borderColor="brandBlue"
 									flexDir="column"
 									padding="6"
+									_hover={{
+										boxShadow: "-0.65rem 0.65rem 0 0 #41B574",
+										left: "10px",
+									}}
 								>
 									<Flex justifyContent="space-between">
 										<Box>
