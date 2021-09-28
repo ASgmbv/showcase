@@ -7,6 +7,8 @@ import { getGridArea } from "lib/utils";
 import { queryProjects } from "lib/queries";
 import Poster from "@/components/poster";
 import Title from "@/components/title";
+import { NextSeo } from "next-seo";
+import { getPageTitle } from "lib/config";
 
 export const getStaticProps = async () => {
 	const projects = await queryProjects();
@@ -42,6 +44,8 @@ const Projects = ({ projects }) => {
 const ProjectsPage = ({ projects }) => {
 	return (
 		<>
+			<NextSeo title={getPageTitle("Projects")} />
+
 			<Header />
 			<Banner title="PROJECTS" />
 			<Title>OUR WORKS</Title>

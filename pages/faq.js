@@ -17,6 +17,8 @@ import Header from "@/components/header";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import Title from "@/components/title";
 import { MdMail, MdPhone } from "react-icons/md";
+import { NextSeo } from "next-seo";
+import { getPageTitle } from "lib/config";
 
 const faqs = [
 	{
@@ -92,6 +94,8 @@ const Faqs = () => {
 const FaqsPage = () => {
 	return (
 		<>
+			<NextSeo title={getPageTitle("FAQs")} />
+
 			<Header />
 			<Banner title="FAQs" />
 			<Container maxW="container.xl">

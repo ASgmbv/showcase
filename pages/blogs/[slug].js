@@ -12,7 +12,9 @@ import {
 	Text,
 } from "@chakra-ui/react";
 import { format } from "date-fns";
+import { getPageTitle } from "lib/config";
 import { queryBlogPosts, queryBlogPostBySlug } from "lib/queries";
+import { NextSeo } from "next-seo";
 import NextImage from "next/image";
 import NextLink from "next/link";
 import { getPlaiceholder } from "plaiceholder";
@@ -82,6 +84,7 @@ const BlogPage = ({ blogPost, latestBlogPosts }) => {
 
 	return (
 		<>
+			<NextSeo title={getPageTitle(blogPost.title)} />
 			<Header />
 			<Box height="400px" position="relative">
 				<NextImage

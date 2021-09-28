@@ -18,6 +18,8 @@ import { queryBlogPosts } from "lib/queries";
 import NextImage from "next/image";
 import NextLink from "next/link";
 import { getPlaiceholder } from "plaiceholder";
+import { NextSeo } from "next-seo";
+import { getPageTitle } from "lib/config";
 
 export const getStaticProps = async () => {
 	let blogPosts = await queryBlogPosts();
@@ -109,6 +111,7 @@ const Posts = ({ posts }) => {
 const BlogsPage = ({ blogPosts = [] }) => {
 	return (
 		<>
+			<NextSeo title={getPageTitle("Blog")} />
 			<Header />
 			<Banner title="BLOGS" />
 			<Posts posts={blogPosts} />

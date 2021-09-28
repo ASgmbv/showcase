@@ -6,6 +6,8 @@ import Title from "@/components/title";
 import Card from "@/components/card";
 import { queryServices } from "lib/queries";
 import NextLink from "next/link";
+import { NextSeo } from "next-seo";
+import { getPageTitle } from "lib/config";
 
 export const getStaticProps = async () => {
 	const services = await queryServices();
@@ -49,6 +51,8 @@ const SpecificService = ({ services }) => {
 const ServicesPage = ({ services }) => {
 	return (
 		<>
+			<NextSeo title={getPageTitle("Services")} />
+
 			<Header />
 			<Banner title="SERVICES" />
 			<Title>WHAT WE DO</Title>

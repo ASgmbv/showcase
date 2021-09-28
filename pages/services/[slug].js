@@ -5,6 +5,8 @@ import { queryServiceBySlug, queryServices } from "lib/queries";
 import Gallery from "@/components/gallery";
 import Footer from "@/components/footer";
 import { getPlaiceholder } from "plaiceholder";
+import { NextSeo } from "next-seo";
+import { getPageTitle } from "lib/config";
 
 export async function getStaticProps({ params }) {
 	const service = await queryServiceBySlug(params.slug);
@@ -46,6 +48,8 @@ const ServicePage = ({ service, cover }) => {
 
 	return (
 		<>
+			<NextSeo title={getPageTitle(service.title)} />
+
 			<Header />
 			<Banner title="SERVICES" image={cover} />
 			<Container maxW="container.xl">

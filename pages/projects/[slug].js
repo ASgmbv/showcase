@@ -6,6 +6,8 @@ import Gallery from "@/components/gallery";
 import { queryProjectBySlug, queryProjects } from "lib/queries";
 import { getPlaiceholder } from "plaiceholder";
 import bannerImage from "../../public/blogs/main.png";
+import { NextSeo } from "next-seo";
+import { getPageTitle } from "lib/config";
 
 export async function getStaticProps({ params }) {
 	const project = await queryProjectBySlug(params.slug);
@@ -47,6 +49,7 @@ const ProjectPage = ({ project, cover }) => {
 
 	return (
 		<>
+			<NextSeo title={getPageTitle(project.title)} />
 			<Header />
 			<Box height={["500px", null, "600px"]} position="relative">
 				{cover ? (

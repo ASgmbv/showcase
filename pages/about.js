@@ -19,6 +19,8 @@ import Title from "@/components/title";
 import { Testimonials } from "@/components/testimonials";
 import NextLink from "next/link";
 import { queryTeamMembers, queryTestimonials } from "lib/queries";
+import { NextSeo } from "next-seo";
+import { getPageTitle } from "lib/config";
 
 export const getStaticProps = async () => {
 	const testimonials = await queryTestimonials();
@@ -351,6 +353,8 @@ const TeamMemberCard = ({ name, position, photo }) => {
 const AboutUsPage = ({ testimonials, teamMembers }) => {
 	return (
 		<>
+			<NextSeo title={getPageTitle("About Us")} />
+
 			<Header />
 			<Banner title="ABOUT US" />
 			<Container maxW="container.xl">
