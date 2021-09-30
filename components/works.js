@@ -15,7 +15,7 @@ const Works = ({ projects }) => {
 							<Poster
 								key={idx}
 								title={title}
-								description={location}
+								location={location}
 								image={cover}
 								height="360px"
 							/>
