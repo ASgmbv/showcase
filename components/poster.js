@@ -1,9 +1,7 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
 
-const DESCRIPTION_LENGTH = 180;
-
-const Poster = ({ title, description, image, ...props }) => {
+const Poster = ({ title, location, image, ...props }) => {
 	return (
 		<Box position="relative" {...props}>
 			<NextImage src={image} layout="fill" objectFit="cover" />
@@ -11,16 +9,17 @@ const Poster = ({ title, description, image, ...props }) => {
 				position="absolute"
 				top="0"
 				left="0"
-				width="100%"
-				height="100%"
+				boxSize="100%"
 				color="white"
-				justifyContent="center"
-				flexDir="column"
-				padding={[6, null, 10]}
-				bg={["rgba(9, 78, 143, 0.8)", null, null, "rgba(9, 78, 143, 0.4)"]}
+				padding={[6, null, "70px"]}
+				bg={[
+					"rgba(9, 78, 143, 0.5)",
+					null,
+					"linear-gradient(180deg, rgba(9, 78, 143, 0.5) 0%, rgba(9, 78, 143, 0) 80%)",
+				]}
+				transition="all ease-in-out 0.3s"
 				_hover={{
-					backgroundColor: "rgba(9, 78, 143, 0.8)",
-					transition: "all 0.4s",
+					backgroundColor: "rgba(9, 78, 143, 0.5)",
 					h3: {
 						transition: "all ease-in-out 0.3s",
 						opacity: 1,
@@ -30,30 +29,30 @@ const Poster = ({ title, description, image, ...props }) => {
 						opacity: 1,
 					},
 				}}
+				alignItems="center"
+				justifyContent="center"
 			>
-				<Heading
-					as="h3"
-					fontWeight="medium"
-					textAlign="center"
-					fontSize={["lg", null, "2xl"]}
-					letterSpacing="wide"
-					opacity={[1, null, null, 0]}
-					transition="all ease-in-out 0.3s"
-					mb="3"
-				>
-					{title}
-				</Heading>
+				<Flex flexDirection="column" textAlign="center" color="white">
+					<Heading
+						as="h3"
+						fontWeight="medium"
+						fontSize={["lg", null, "2xl"]}
+						position="relative"
+						bottom={[0, null, "15px"]}
+						transition="all 0.3s"
+					>
+						{title}
+					</Heading>
 
-				<Text
-					opacity={[1, null, null, 0]}
-					fontSize={["sm"]}
-					textAlign="center"
-					transition="all ease-in-out 0.3s"
-				>
-					{description.length < DESCRIPTION_LENGTH
-						? description
-						: description.substring(0, DESCRIPTION_LENGTH).concat(" ...")}
-				</Text>
+					<Text
+						lineHeight="tall"
+						opacity={[1, null, 0]}
+						transition="all 0.3s"
+						fontSize={["sm", null, "md"]}
+					>
+						{location}
+					</Text>
+				</Flex>
 			</Flex>
 		</Box>
 	);

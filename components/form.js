@@ -22,62 +22,60 @@ const Form = () => {
 					paddingY="20"
 				>
 					<Container>
-						<Stack spacing="8" alignItems="flex-start">
-							<Heading color="white" fontSize={["3xl", null, "4xl"]}>
-								Get in Touch
-							</Heading>
-							<Text color="#A2A9B0">
-								Have a project in mind that you think we’d be a great
-								fit for it? We’d love to know what you’re thinking
-							</Text>
-							<Stack
-								direction={["column", null, "row"]}
-								spacing="6"
-								width="100%"
-							>
+						<Box as="form" width="100%" color="white">
+							<Stack spacing="8" alignItems="flex-start">
+								<Heading fontSize={["3xl", null, "4xl"]}>
+									Get in Touch
+								</Heading>
+								<Text color="#A2A9B0">
+									Have a project in mind that you think we’d be a great
+									fit for it? We’d love to know what you’re thinking
+								</Text>
+
+								<Stack
+									direction={["column", null, "row"]}
+									spacing="6"
+									width="100%"
+								>
+									<FormControl>
+										<FormLabel fontWeight="bold">Full Name</FormLabel>
+										<Input
+											borderRadius="0"
+											size="lg"
+											placeholder="Full Name"
+											colorScheme="twitter"
+										/>
+									</FormControl>
+									<FormControl>
+										<FormLabel fontWeight="bold">
+											Email Address
+										</FormLabel>
+										<Input
+											borderRadius="0"
+											size="lg"
+											placeholder="Email Address"
+										/>
+									</FormControl>
+								</Stack>
 								<FormControl>
-									<FormLabel color="white" fontWeight="bold">
-										Full Name
-									</FormLabel>
-									<Input
-										borderRadius="0"
-										color="white"
+									<FormLabel fontWeight="bold">Messages</FormLabel>
+									<Textarea
 										size="lg"
-										placeholder="Full Name"
-										colorScheme="twitter"
+										borderRadius="0"
+										placeholder="Your Message"
+										noOfLines="10"
 									/>
 								</FormControl>
-								<FormControl>
-									<FormLabel color="white" fontWeight="bold">
-										Email Address
-									</FormLabel>
-									<Input
-										borderRadius="0"
-										size="lg"
-										placeholder="Email Address"
-										color="white"
-									/>
-								</FormControl>
+
+								<Button size="lg" colorScheme="green">
+									Send Message
+								</Button>
 							</Stack>
-							<FormControl>
-								<FormLabel color="white" fontWeight="bold">
-									Messages
-								</FormLabel>
-								<Textarea
-									size="lg"
-									borderRadius="0"
-									placeholder="Your Message"
-									noOfLines="10"
-								/>
-							</FormControl>
-							<Button size="lg" colorScheme="green">
-								Send Message
-							</Button>
-						</Stack>
+						</Box>
 					</Container>
 				</Box>
 				<Box
-					backgroundImage="/form.jpg"
+					backgroundImage="/slider2.jpg"
 					backgroundSize="cover"
 					backgroundPosition="center"
 					display={["none", null, null, "block"]}

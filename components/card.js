@@ -12,14 +12,15 @@ const Card = ({ title, description, image, button }) => {
 				top="0"
 				left="0"
 				bg={[
-					"rgba(9, 78, 143, 0.8)",
+					"rgba(9, 78, 143, 0.5)",
 					null,
 					"linear-gradient(180deg, rgba(9, 78, 143, 0.5) 0%, rgba(9, 78, 143, 0) 80%)",
 				]}
 				boxSize="100%"
 				initial="rest"
+				transition="all ease-in-out 0.3s"
 				_hover={{
-					backgroundColor: "rgba(9, 78, 143, 0.8)",
+					backgroundColor: "rgba(9, 78, 143, 0.5)",
 					div: {
 						opacity: 1,
 						transform: "scale(1)",

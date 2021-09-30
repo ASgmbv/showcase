@@ -25,13 +25,13 @@ export const getStaticProps = async () => {
 const Projects = ({ projects }) => {
 	return (
 		<Grid templateColumns={["1fr", null, "repeat(3, 1fr)"]} gap="1">
-			{projects.map(({ title, description, cover, slug }, idx) => (
+			{projects.map(({ title, location, cover, slug }, idx) => (
 				<NextLink key={idx} href={`/projects/${slug}`} passHref>
 					<Link gridColumn={[null, null, getGridArea(idx)]}>
 						<Poster
 							key={idx}
 							title={title}
-							description={description}
+							location={location}
 							image={cover}
 							height="360px"
 						/>

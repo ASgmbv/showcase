@@ -68,7 +68,7 @@ const Header = () => {
 							}}
 						>
 							{sitemap
-								.filter((el) => el.title !== "Contacts")
+								.filter((el) => el.title !== "Contact Us")
 								.map(({ title, link }, idx) => {
 									return (
 										<NextLink key={link} href={link} passHref>
@@ -127,7 +127,7 @@ const Header = () => {
 										: "gray.800"
 								}
 							>
-								Contacts
+								Contact Us
 							</Link>
 						</NextLink>
 						<Button colorScheme="green" variant="outline">

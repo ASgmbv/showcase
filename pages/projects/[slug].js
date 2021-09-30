@@ -42,6 +42,24 @@ export async function getStaticPaths() {
 	};
 }
 
+const Field = ({ label, value, props }) => {
+	return (
+		<Flex color="white" flexDirection="column" {...props}>
+			<Text
+				as="span"
+				fontSize="sm"
+				color="#7A7A7A"
+				textTransform="uppercase"
+			>
+				{label}
+			</Text>
+			<Text as="span" fontSize="sm" textTransform="uppercase">
+				{value}
+			</Text>
+		</Flex>
+	);
+};
+
 const ProjectPage = ({ project, cover }) => {
 	if (!project) {
 		return <div>loading</div>;
@@ -91,53 +109,17 @@ const ProjectPage = ({ project, cover }) => {
 								gap="6"
 								mb="100px"
 							>
-								{[
-									{
-										label: "client",
-										value:
-											"VANCOUVER INTERNATIONAL AIRPORT AUTHORITY",
-									},
-									{
-										label: "client",
-										value:
-											"VANCOUVER INTERNATIONAL AIRPORT AUTHORITY",
-									},
-									{
-										label: "client",
-										value:
-											"VANCOUVER INTERNATIONAL AIRPORT AUTHORITY",
-									},
-									{
-										label: "SECTOR",
-										value: "BUILDINGS, SPECIAL PROJECTS",
-									},
-									{
-										label: "SECTOR",
-										value: "BUILDINGS, SPECIAL PROJECTS",
-									},
-									{
-										label: "SECTOR",
-										value: "BUILDINGS, SPECIAL PROJECTS",
-									},
-								].map(({ label, value }, idx) => (
-									<Flex key={idx} color="white" flexDirection="column">
-										<Text
-											as="span"
-											fontSize="sm"
-											color="#7A7A7A"
-											textTransform="uppercase"
-										>
-											{label}
-										</Text>
-										<Text
-											as="span"
-											fontSize="sm"
-											textTransform="uppercase"
-										>
-											{value}
-										</Text>
-									</Flex>
-								))}
+								<Field label="client" value={project.client} />
+
+								<Field label="service" value={project.service} />
+
+								<Field label="start date" value={project.start_date} />
+
+								<Field label="location" value={project.location} />
+
+								<Field label="object" value={project.object} />
+
+								<Field label="end date" value={project.end_date} />
 							</Grid>
 						</Flex>
 					</Container>
@@ -164,46 +146,17 @@ const ProjectPage = ({ project, cover }) => {
 						position="relative"
 						top="-50px"
 					>
-						{[
-							{
-								label: "client",
-								value: "VANCOUVER INTERNATIONAL AIRPORT AUTHORITY",
-							},
-							{
-								label: "client",
-								value: "VANCOUVER INTERNATIONAL AIRPORT AUTHORITY",
-							},
-							{
-								label: "client",
-								value: "VANCOUVER INTERNATIONAL AIRPORT AUTHORITY",
-							},
-							{
-								label: "SECTOR",
-								value: "BUILDINGS, SPECIAL PROJECTS",
-							},
-							{
-								label: "SECTOR",
-								value: "BUILDINGS, SPECIAL PROJECTS",
-							},
-							{
-								label: "SECTOR",
-								value: "BUILDINGS, SPECIAL PROJECTS",
-							},
-						].map(({ label, value }, idx) => (
-							<Flex key={idx} flexDirection="column">
-								<Text
-									as="span"
-									fontSize="sm"
-									color="#7A7A7A"
-									textTransform="uppercase"
-								>
-									{label}
-								</Text>
-								<Text as="span" fontSize="sm" textTransform="uppercase">
-									{value}
-								</Text>
-							</Flex>
-						))}
+						<Field label="client" value={project.client} />
+
+						<Field label="service" value={project.service} />
+
+						<Field label="start date" value={project.start_date} />
+
+						<Field label="location" value={project.location} />
+
+						<Field label="object" value={project.object} />
+
+						<Field label="end date" value={project.end_date} />
 					</Grid>
 					<Box>
 						<Heading mb="4">{project.title}</Heading>

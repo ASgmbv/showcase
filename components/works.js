@@ -9,13 +9,13 @@ const Works = ({ projects }) => {
 		<>
 			<Title>Our Projects</Title>
 			<Grid gap="1">
-				{projects.map(({ title, description, cover, slug }, idx) => (
+				{projects.map(({ title, location, cover, slug }, idx) => (
 					<NextLink key={idx} href={`/projects/${slug}`} passHref>
 						<Link gridColumn={[null, null, getGridArea(idx)]}>
 							<Poster
 								key={idx}
 								title={title}
-								description={description}
+								description={location}
 								image={cover}
 								height="360px"
 							/>

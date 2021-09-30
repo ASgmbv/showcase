@@ -14,9 +14,9 @@ import {
 import NextImage from "next/image";
 import { MdLocationOn, MdMailOutline, MdPhone } from "react-icons/md";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import { sitemap } from "lib/config";
-import NextLink from "next/link";
 import { useRouter } from "next/router";
+import { sitemap, info } from "lib/config";
+import NextLink from "next/link";
 
 const Footer = () => {
 	const router = useRouter();
@@ -51,13 +51,13 @@ const Footer = () => {
 						<Stack direction="row" spacing="4">
 							<Icon as={MdPhone} boxSize="5" color="#094E8F" />
 							<Text fontSize="sm" color="brandBlue">
-								+1 631-518-3331
+								{info.phone}
 							</Text>
 						</Stack>
 						<Stack direction="row" spacing="4">
 							<Icon as={MdMailOutline} boxSize="5" color="#094E8F" />
 							<Text fontSize="sm" color="brandBlue">
-								italiaoutdoorlivingpavers@gmail.com
+								{info.email}
 							</Text>
 						</Stack>
 

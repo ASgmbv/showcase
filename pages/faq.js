@@ -6,6 +6,7 @@ import {
 	Box,
 	Container,
 	Grid,
+	Link,
 	Text,
 } from "@chakra-ui/react";
 import Banner from "@/components/banner";
@@ -15,7 +16,7 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import Title from "@/components/title";
 import { MdMail, MdPhone } from "react-icons/md";
 import { NextSeo } from "next-seo";
-import { getPageTitle } from "lib/config";
+import { getPageTitle, info } from "lib/config";
 import banner from "../public/banner/3.jpg";
 import ContactsCard from "@/components/contacts-card";
 import { queryFAQs } from "lib/queries";
@@ -108,20 +109,25 @@ const FaqsPage = ({ faqs }) => {
 					mt="50px"
 					mb={["80px", null, "100px"]}
 				>
-					{[
-						{
-							icon: MdPhone,
-							title: "+1 631-518-3331",
-							subtitle: "We are always happy to help.",
-						},
-						{
-							icon: MdMail,
-							title: "contact@italiaoutdoor.com",
-							subtitle: "Alternative way to get anwser faster.",
-						},
-					].map((data, idx) => (
-						<ContactsCard key={idx} {...data} />
-					))}
+					<Link href={`tel:${info.phone}`}>
+						<ContactsCard
+							{...{
+								icon: MdPhone,
+								title: info.phone,
+								subtitle: "We are always happy to help.",
+							}}
+						/>
+					</Link>
+
+					<Link href={`mailto:${info.email}`}>
+						<ContactsCard
+							{...{
+								icon: MdMail,
+								title: info.email,
+								subtitle: "Alternative way to get anwser faster.",
+							}}
+						/>
+					</Link>
 				</Grid>
 			</Container>
 			<Footer />
