@@ -41,8 +41,7 @@ const Footer = () => {
 							<NextImage src="/logo.png" width="140px" height="40px" />
 						</Box>
 						<Text color="#094E8F">
-							Our Group is Landscape Design company located in
-							Ohio,United States of America
+							Italian Outdoor Living Group We build luxury
 						</Text>
 					</Stack>
 					<Stack spacing="5">
@@ -58,7 +57,7 @@ const Footer = () => {
 						<Stack direction="row" spacing="4">
 							<Icon as={MdMailOutline} boxSize="5" color="#094E8F" />
 							<Text fontSize="sm" color="brandBlue">
-								contact@italiaoutdoor.com
+								italiaoutdoorlivingpavers@gmail.com
 							</Text>
 						</Stack>
 
@@ -128,7 +127,10 @@ const Footer = () => {
 									<Icon as={FaFacebookF} color="white" />
 								</Circle>
 							</Link>
-							<Link>
+							<Link
+								href="https://www.youtube.com/user/italiaoutdoorlivin"
+								isExternal
+							>
 								<Circle
 									bg="brandBlue"
 									boxSize="8"
@@ -154,8 +156,8 @@ const Footer = () => {
 							</Link>
 						</Stack>
 						<Text color="brandBlue">
-							Lorem ipsum dolor sit amet, consec tetur adipiscing elit,
-							sed do eiusmod.
+							Follow our social media to see the latest news and posts
+							from our company
 						</Text>
 					</Stack>
 				</Grid>
