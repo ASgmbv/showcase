@@ -12,9 +12,9 @@ const Card = ({ title, description, image, button }) => {
 				top="0"
 				left="0"
 				bg={[
-					"rgba(77, 124, 142, 0.8)",
+					"rgba(9, 78, 143, 0.8)",
 					null,
-					"linear-gradient(180deg, rgba(77, 124, 142, 0.8) 0%, rgba(77, 124, 142, 0) 100%)",
+					"linear-gradient(180deg, rgba(9, 78, 143, 0.5) 0%, rgba(9, 78, 143, 0) 80%)",
 				]}
 				boxSize="100%"
 				initial="rest"

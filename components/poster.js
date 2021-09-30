@@ -17,14 +17,9 @@ const Poster = ({ title, description, image, ...props }) => {
 				justifyContent="center"
 				flexDir="column"
 				padding={[6, null, 10]}
-				bg={[
-					"rgba(77, 124, 142, 0.8)",
-					null,
-					null,
-					"rgba(77, 124, 142, 0.4)",
-				]}
+				bg={["rgba(9, 78, 143, 0.8)", null, null, "rgba(9, 78, 143, 0.4)"]}
 				_hover={{
-					backgroundColor: "rgba(77, 124, 142, 0.8)",
+					backgroundColor: "rgba(9, 78, 143, 0.8)",
 					transition: "all 0.4s",
 					h3: {
 						transition: "all ease-in-out 0.3s",
