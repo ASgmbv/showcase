@@ -52,7 +52,10 @@ const SpecificService = ({ services }) => {
 const ServicesPage = ({ services }) => {
 	return (
 		<>
-			<NextSeo title={getPageTitle("Services")} />
+			<NextSeo
+				title={getPageTitle("Services")}
+				description="We specialize in gunite and vinyl pools. Design, supply and build. Call now to get a free estimate."
+			/>
 
 			<Header />
 			<Banner

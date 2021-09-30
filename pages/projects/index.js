@@ -45,7 +45,10 @@ const Projects = ({ projects }) => {
 const ProjectsPage = ({ projects }) => {
 	return (
 		<>
-			<NextSeo title={getPageTitle("Projects")} />
+			<NextSeo
+				title={getPageTitle("Projects")}
+				description="Our portfolio includes houses all over the East Coast. Designed, supplied and built by us. Call now to get a free estimate."
+			/>
 
 			<Header />
 			<Banner

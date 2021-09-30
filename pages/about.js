@@ -437,7 +437,10 @@ const TeamMemberCard = ({ name, position, photo }) => {
 const AboutUsPage = ({ testimonials, teamMembers }) => {
 	return (
 		<>
-			<NextSeo title={getPageTitle("About Us")} />
+			<NextSeo
+				title={getPageTitle("About Us")}
+				description="Our company specializes in pools. We Design, Supply and Build gunite and vinyl pools. Call now to get a free estimated"
+			/>
 
 			<Header />
 			<Banner

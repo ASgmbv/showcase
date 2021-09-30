@@ -112,7 +112,10 @@ const Posts = ({ posts }) => {
 const BlogsPage = ({ blogPosts = [] }) => {
 	return (
 		<>
-			<NextSeo title={getPageTitle("Blog")} />
+			<NextSeo
+				title={getPageTitle("Blog")}
+				description="Read our latest blogs about pools and landscape designing"
+			/>
 			<Header />
 			<Banner
 				title="BLOGS"

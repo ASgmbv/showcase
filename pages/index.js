@@ -8,6 +8,7 @@ import Works from "../components/works";
 import Header from "../components/header";
 import { queryProjects, queryServices, queryTestimonials } from "lib/queries";
 import { NextSeo } from "next-seo";
+import { getPageTitle } from "lib/config";
 
 export const getStaticProps = async () => {
 	const services = await queryServices({
@@ -33,7 +34,10 @@ export const getStaticProps = async () => {
 export default function Home({ services, projects, testimonials }) {
 	return (
 		<>
-			<NextSeo title="Italia Outdoor Living Group" />
+			<NextSeo
+				title={getPageTitle("Home")}
+				description="Luxury outdoor living space. Call now to get a free estimate."
+			/>
 
 			<BannerSlider />
 			<Box position="relative">

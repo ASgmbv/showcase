@@ -30,7 +30,10 @@ const cards = [
 const ContactsPage = () => {
 	return (
 		<>
-			<NextSeo title={getPageTitle("Contacts")} />
+			<NextSeo
+				title={getPageTitle("Contacts")}
+				description="Call us now to get a free estimate if you’re planning to build a pool. We build, design and supply!"
+			/>
 
 			<Header />
 

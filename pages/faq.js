@@ -79,7 +79,10 @@ const Faqs = ({ faqs }) => {
 const FaqsPage = ({ faqs }) => {
 	return (
 		<>
-			<NextSeo title={getPageTitle("FAQs")} />
+			<NextSeo
+				title={getPageTitle("FAQs")}
+				description="Frequently asked questions about gunite pool, vinyl pools and landscape design"
+			/>
 
 			<Header />
 			<Banner
