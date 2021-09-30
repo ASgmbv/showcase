@@ -15,6 +15,9 @@ const Gallery = ({ images = [], ...props }) => {
 		},
 	});
 
+	const isLeftDisabled = currIdx === 0;
+	const isRightDisabled = currIdx === images.length - 1;
+
 	return (
 		<Box position="relative" boxSize="100%" {...props}>
 			<Box
@@ -107,7 +110,7 @@ const Gallery = ({ images = [], ...props }) => {
 						zIndex="1"
 						borderRadius="full"
 						_hover={{
-							transform: "scale(1.1)",
+							transform: !isLeftDisabled && "scale(1.1)",
 						}}
 						_active={{
 							boxShadow: "none",
@@ -115,12 +118,16 @@ const Gallery = ({ images = [], ...props }) => {
 						_focus={{
 							boxShadow: "none",
 						}}
-						bg={["gray.300"]}
+						bg="gray.300"
+						opacity={isLeftDisabled && 0.4}
 						icon={<Icon as={BsArrowLeft} boxSize="20px" />}
 						onClick={() => {
+							if (currIdx === 0) {
+								return;
+							}
+
 							slider.prev(1);
 						}}
-						isDisabled={currIdx === 0}
 					/>
 					<IconButton
 						position="absolute"
@@ -139,11 +146,15 @@ const Gallery = ({ images = [], ...props }) => {
 							boxShadow: "none",
 						}}
 						bg={["gray.300"]}
+						opacity={isRightDisabled && 0.4}
 						icon={<Icon as={BsArrowRight} boxSize="20px" />}
 						onClick={() => {
+							if (isRightDisabled) {
+								return;
+							}
+
 							slider.next(1);
 						}}
-						isDisabled={currIdx === images.length - 1}
 					/>
 				</Flex>
 				<Stack direction="row" spacing="3">

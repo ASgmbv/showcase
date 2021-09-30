@@ -80,6 +80,7 @@ export const Testimonials = ({ testimonials }) => {
 										boxShadow: "-0.65rem 0.65rem 0 0 #41B574",
 										left: "10px",
 									}}
+									transition="all 0.5s"
 								>
 									<Flex justifyContent="space-between">
 										<Box>

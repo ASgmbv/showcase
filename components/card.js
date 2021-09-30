@@ -19,7 +19,7 @@ const Card = ({ title, description, image, button }) => {
 				boxSize="100%"
 				initial="rest"
 				_hover={{
-					backgroundColor: "rgba(77, 124, 142, 0.8)",
+					backgroundColor: "rgba(9, 78, 143, 0.8)",
 					div: {
 						opacity: 1,
 						transform: "scale(1)",

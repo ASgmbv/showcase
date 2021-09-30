@@ -41,6 +41,7 @@ const Form = () => {
 									</FormLabel>
 									<Input
 										borderRadius="0"
+										color="white"
 										size="lg"
 										placeholder="Full Name"
 										colorScheme="twitter"
@@ -54,6 +55,7 @@ const Form = () => {
 										borderRadius="0"
 										size="lg"
 										placeholder="Email Address"
+										color="white"
 									/>
 								</FormControl>
 							</Stack>
