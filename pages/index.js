@@ -9,6 +9,7 @@ import Header from "../components/header";
 import { queryProjects, queryServices, queryTestimonials } from "lib/queries";
 import { NextSeo } from "next-seo";
 import { getPageTitle } from "lib/config";
+import Script from "next/script";
 
 export const getStaticProps = async () => {
 	const services = await queryServices({
@@ -37,6 +38,21 @@ export default function Home({ services, projects, testimonials }) {
 			<NextSeo
 				title={getPageTitle("Home")}
 				description="Luxury outdoor living space. Call now to get a free estimate."
+			/>
+
+			<Script
+				dangerouslySetInnerHTML={{
+					__html: `
+          window.$crisp=[];
+          window.CRISP_WEBSITE_ID="fe1ffce6-c134-4091-b084-e8c0dac2512b";
+          (function(){d=document;
+            s=d.createElement("script");
+            s.src="https://client.crisp.chat/l.js";
+            s.async=1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+          })();
+          `,
+				}}
 			/>
 
 			<BannerSlider />
