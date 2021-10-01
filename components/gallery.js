@@ -34,7 +34,7 @@ const Gallery = ({ images = [], ...props }) => {
 			</Box>
 
 			<Box
-				background="rgba(77, 124, 142, 0.3)"
+				// background="rgba(77, 124, 142, 0.3)"
 				position="absolute"
 				top="0"
 				left="0"
