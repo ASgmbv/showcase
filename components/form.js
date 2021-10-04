@@ -151,13 +151,17 @@ const Form = () => {
 								size="lg"
 								{...register("Service", { required: true })}
 							>
-								<option value="Pool">Pool</option>
-								<option value="Backyard">Backyard</option>
-								<option value="Landscape Design">
-									Landscape Design
-								</option>
-								<option value="Outdoor Kitchen">Outdoor Kitchen</option>
-								<option value="other">Other</option>
+								{[
+									"Pool",
+									"Backyard",
+									"Landscape Design",
+									"Outdoor Kitchen",
+									"other",
+								].map((option) => (
+									<option key={option} value="Pool" color="black">
+										{option}
+									</option>
+								))}
 							</Select>
 							<FormErrorMessage>The field is required!</FormErrorMessage>
 						</FormControl>
