@@ -1,4 +1,4 @@
-import { Button, Grid, Link } from "@chakra-ui/react";
+import { Button, Flex, Grid, Link } from "@chakra-ui/react";
 import Card from "./card";
 import NextLink from "next/link";
 import Title from "./title";
@@ -35,6 +35,13 @@ const Features = ({ services }) => {
 					</NextLink>
 				))}
 			</Grid>
+			<NextLink href="/services" passHref>
+				<Flex as="a" width="full" justifyContent="center" mt="10">
+					<Button colorScheme="green" variant="outline">
+						All Services
+					</Button>
+				</Flex>
+			</NextLink>
 		</>
 	);
 };

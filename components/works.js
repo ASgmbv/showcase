@@ -1,4 +1,4 @@
-import { Grid, Link } from "@chakra-ui/react";
+import { Button, Flex, Grid, Link } from "@chakra-ui/react";
 import { getGridArea } from "lib/utils";
 import Poster from "./poster";
 import NextLink from "next/link";
@@ -23,6 +23,13 @@ const Works = ({ projects }) => {
 					</NextLink>
 				))}
 			</Grid>
+			<NextLink href="/projects" passHref>
+				<Flex as="a" width="full" justifyContent="center" mt="10">
+					<Button colorScheme="green" variant="outline">
+						All Projects
+					</Button>
+				</Flex>
+			</NextLink>
 		</>
 	);
 };

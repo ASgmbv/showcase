@@ -77,7 +77,7 @@ const Form = () => {
 	};
 
 	return (
-		<Grid templateColumns={["1fr", null, null, "repeat(3, 1fr)"]}>
+		<Grid templateColumns={["1fr", null, null, "repeat(3, 1fr)"]} id="form">
 			<Box
 				gridColumn={[null, null, null, "1 / 3"]}
 				bg="brandBlue"

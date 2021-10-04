@@ -130,9 +130,14 @@ const Header = () => {
 								Contact Us
 							</Link>
 						</NextLink>
-						<Button colorScheme="green" variant="outline">
-							Get Estimate
-						</Button>
+
+						<NextLink href="/#form">
+							<a>
+								<Button colorScheme="green" variant="outline">
+									Get Estimate
+								</Button>
+							</a>
+						</NextLink>
 					</HStack>
 
 					{/* for mobile */}
@@ -178,13 +183,13 @@ const Header = () => {
 										);
 									})}
 								</Stack>
-								<Button
-									colorScheme="green"
-									variant="outline"
-									width="100%"
-								>
-									Get Estimate
-								</Button>
+								<NextLink href="/#form">
+									<a>
+										<Button colorScheme="green" variant="outline">
+											Get Estimate
+										</Button>
+									</a>
+								</NextLink>
 							</DrawerBody>
 						</DrawerContent>
 					</Drawer>
