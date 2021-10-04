@@ -99,6 +99,39 @@ const Form = () => {
 							for it? We’d love to know what you’re thinking
 						</Text>
 
+						{/* Email */}
+						<FormControl isInvalid={errors.email}>
+							<FormLabel fontWeight="bold">Email</FormLabel>
+							<Input
+								borderRadius="0"
+								size="lg"
+								{...register("Email", { required: true })}
+							/>
+							<FormErrorMessage>The field is required!</FormErrorMessage>
+						</FormControl>
+
+						{/* Full Name */}
+						<FormControl isInvalid={errors.name}>
+							<FormLabel fontWeight="bold">Full Name</FormLabel>
+							<Input
+								borderRadius="0"
+								size="lg"
+								{...register("Name", { required: true })}
+							/>
+							<FormErrorMessage>The field is required!</FormErrorMessage>
+						</FormControl>
+
+						{/* Phone */}
+						<FormControl isInvalid={errors.phone}>
+							<FormLabel fontWeight="bold">Phone Number</FormLabel>
+							<Input
+								borderRadius="0"
+								size="lg"
+								{...register("Phone", { required: true })}
+							/>
+							<FormErrorMessage>The field is required!</FormErrorMessage>
+						</FormControl>
+
 						{/* Address */}
 						<FormControl isInvalid={errors.address}>
 							<FormLabel fontWeight="bold">Your Address</FormLabel>
@@ -145,39 +178,6 @@ const Form = () => {
 								</FormErrorMessage>
 							</FormControl>
 						)}
-
-						{/* Phone */}
-						<FormControl isInvalid={errors.phone}>
-							<FormLabel fontWeight="bold">Phone Number</FormLabel>
-							<Input
-								borderRadius="0"
-								size="lg"
-								{...register("Phone", { required: true })}
-							/>
-							<FormErrorMessage>The field is required!</FormErrorMessage>
-						</FormControl>
-
-						{/* Email */}
-						<FormControl isInvalid={errors.email}>
-							<FormLabel fontWeight="bold">Email</FormLabel>
-							<Input
-								borderRadius="0"
-								size="lg"
-								{...register("Email", { required: true })}
-							/>
-							<FormErrorMessage>The field is required!</FormErrorMessage>
-						</FormControl>
-
-						{/* Full Name */}
-						<FormControl isInvalid={errors.name}>
-							<FormLabel fontWeight="bold">Full Name</FormLabel>
-							<Input
-								borderRadius="0"
-								size="lg"
-								{...register("Name", { required: true })}
-							/>
-							<FormErrorMessage>The field is required!</FormErrorMessage>
-						</FormControl>
 
 						<Button
 							type="submit"

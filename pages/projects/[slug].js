@@ -44,7 +44,7 @@ export async function getStaticPaths() {
 
 const Field = ({ label, value, props }) => {
 	return (
-		<Flex color="white" flexDirection="column" {...props}>
+		<Flex flexDirection="column" {...props}>
 			<Text
 				as="span"
 				fontSize="sm"
@@ -108,6 +108,7 @@ const ProjectPage = ({ project, cover }) => {
 								templateColumns={"repeat(3, 1fr)"}
 								gap="6"
 								mb="100px"
+								color="white"
 							>
 								<Field label="client" value={project.client} />
 
