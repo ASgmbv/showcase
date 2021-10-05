@@ -158,7 +158,13 @@ const Form = () => {
 									"Outdoor Kitchen",
 									"other",
 								].map((option) => (
-									<option key={option} value="Pool" color="black">
+									<option
+										key={option}
+										value="Pool"
+										style={{
+											color: "black",
+										}}
+									>
 										{option}
 									</option>
 								))}
